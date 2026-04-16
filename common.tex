@@ -1,0 +1,18 @@
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rvec}{m}
+{
+	\begin{bmatrix}
+		% Tar den inmatade kommaseparerade listan (#1) och byter ut kommatecken mot " & "
+		\clist_use:nn { #1 } { & }
+	\end{bmatrix}
+}
+
+\NewDocumentCommand{\cvec}{m}
+{
+	\begin{bmatrix}
+		% Tar den inmatade kommaseparerade listan (#1) och byter ut kommatecken mot " & "
+		\clist_use:nn { #1 } { \\ }
+	\end{bmatrix}
+}
+\ExplSyntaxOff
