@@ -8,21 +8,67 @@
 \end{definition}
 
 \begin{example}
-	Låt $\F = \{ f_k(z) = z^k, k \in \mathbb{N}\} $ och $\Omega = D(0, 1/2)$. Tag nu en sekvens $\{ f_k(z) = z^{a_k} \}$ där $\{a_k\}$ är en ökande sekvens av naturliga tal. Tittar vi på
+    Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, \vert z \vert \le \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en sekvens $\{ f_k(z) = z^{a_k} \}$ där $\{a_k\}$ är en ökande sekvens av naturliga tal. Vi har att
 	\begin{equation*}
-		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{a_k} \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{a_k} = 0.
+		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{a_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{a_k} = 0.
 	\end{equation*}
 
-	Alltså är $\F$ en normalfamilj.
+    Familjen $\F$ är en normalfamilj.
 \end{example}
 
+\begin{definition}[Likformigt begränsad familj]
+    Vi säger att $\F \subset \H(\Omega)$ är likformigt begränsad då det existerar ett begränsat tal $M$ sådant att $\vert f(z) \vert < M$ för alla $z \in \Omega$ och $f \in \F$.
+\end{definition}
 
-
-Nedan presenteras en viktig sats för att kunna bevisa Riemanns avbildningssats.
+Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfamiljer, som kan ses som en motsvarighet till Bolzano-Weierstra\ss~sats i den reella analysen.
 
 \begin{theorem}
-
+Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmängd till $\Omega$. Familjen $\F$ är då en normalfamilj. 
 \end{theorem}
 
+\begin{proof}
+    Vi börjar med att definiera en följd av mängder $\{K_n\}$ som är sådana att $K_n$ ligger i det inre till $K_{n+1}$ och att unionen av mängderna är $\Omega$. Från antagandet att $\F$ är likformigt begränsad följer att det till varje $f \in \F$ existerar ett tal $M_n$ sådant att $\vert f(z) \vert \le M_n$ då $z \in M_n$. Tag nu en punkt $z_0$ ur $K_n$. Från definitionen av mängderna får vi att det existerar $\delta_n>0$ sådant att
+    \begin{equation*}
+        D(z_0, 2\delta_n) \subset K_{n+1}.
+    \end{equation*}
+    Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. Med Cauchy's integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
+    \begin{equation*}
+        f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \left( \frac{1}{\xi - z_0} - \frac{1}{\xi - z_1} \right) d\xi.
+    \end{equation*}
+    Genom att skriva integranden på samma nämnare får vi att
+    \begin{equation*}
+        f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \frac{z_0 - z_1}{(\xi - z_0)(\xi - z_1)} d\xi.
+    \end{equation*}
+    Vilket ger oss att
+    \begin{equation*}
+        \vert f(z_0) - f(z_1) \vert = \vert z_0 - z_1 \vert \cdot \vert \int_{\gamma} \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} d\xi \vert.
+    \end{equation*}
+    Vi uttnyttjar ML-olikheten på integraluttrycket för att få fram
+    \begin{equation}
+        \label{eq:equicontinuous1}
+        \vert f(z_0) - f(z_1) \vert \leq \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\vert \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \vert.
+    \end{equation}
+    Storleken av $\vert \xi - z_0 \vert$ är given då $\xi \in \gamma$. Vi noterade även tidigare att det existerar ett tal $M_{n+1}$ så att $\vert f(\xi) \vert \le M_{n+1}$ då $z \in \gamma \subset K_{n+1}$. För att hantera faktorn $\vert \xi - z_1 \vert$ använder vi triangelolikheten för att få 
+    \begin{equation*}
+        2\delta_n = \vert \xi - z_0 \vert = \vert \xi -z_1 + z_1 - z_0 \vert \le \vert \xi - z_1 \vert + \vert z_1 - z_0 \vert < \vert \xi - z_1 \vert + \delta_n.
+    \end{equation*}
+    Det följer därav att
+    \begin{equation*}
+        \vert \xi - z_1 \vert > \delta_n.
+    \end{equation*}
+    Med detta kan vi skriva om det högra uttrycket i \eqref{eq:equicontinuous1} enligt
+    \begin{equation*}
+        4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\vert \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \vert < \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \frac{M_{n+1}}{2 \delta_n \cdot \delta_n } = \vert z_0 - z_1 \vert \cdot \frac{2 M_{n+1}}{\delta_n}.
+    \end{equation*}
+    Vi kan nu återvända till \eqref{eq:equicontinuous1} och finner sambandet
+    \begin{equation}
+        \label{eq:equicontinuous2}
+        \vert f(z_0) - f(z_1) \vert < \vert z_0 - z_1 \vert \cdot \frac{2 M_{n+1}}{\delta_n}.
+    \end{equation}
+    Med detta samband går det nu utan större svårigheter att finna ett tal $\delta$ givet ett $\epsilon > 0$ sådant att då $\vert z_0 - z_1 \vert < \delta$ kommer $\vert f(z_0) - f(z_1) \vert < \epsilon$. Vi ser genom insättning i \eqref{eq:equicontinuous2} att detta uppfylls av
 
+    \begin{equation*}
+        \delta = \frac{\delta_n}{2M_{n+1}}.
+    \end{equation*}
+\end{proof}
 
