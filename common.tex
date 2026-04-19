@@ -1,18 +1,37 @@
 
+
+\newtheorem{theorem}{Sats}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Exempel}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Anmärkning}
+
+
+
 \ExplSyntaxOn
 \NewDocumentCommand{\rvec}{m}
 {
-	\begin{bmatrix}
-		% Tar den inmatade kommaseparerade listan (#1) och byter ut kommatecken mot " & "
-		\clist_use:nn { #1 } { & }
-	\end{bmatrix}
+	\ensuremath{
+		\begin{bmatrix}
+			\clist_use:nn { #1 } { & }
+		\end{bmatrix}
+	}
 }
 
 \NewDocumentCommand{\cvec}{m}
 {
-	\begin{bmatrix}
-		% Tar den inmatade kommaseparerade listan (#1) och byter ut kommatecken mot " & "
-		\clist_use:nn { #1 } { \\ }
-	\end{bmatrix}
+	\ensuremath{l
+		\begin{bmatrix}
+			\clist_use:nn { #1 } { \\ }
+		\end{bmatrix}
+	}
 }
 \ExplSyntaxOff
+
+
+
+\renewcommand{\phi}{\varphi}

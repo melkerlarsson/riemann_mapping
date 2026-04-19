@@ -1,19 +1,89 @@
-\documentclass{article}
+\documentclass[]{article}
+\usepackage[swedish]{babel}
 \usepackage{amsmath}
-\usepackage{amssymb}
-
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{microtype}
+\usepackage{graphicx}
 
 \input{common.tex}
 
-\title{Riemanns avbildningssats}
-\author{Melker Larsson \and Hugo Tängdén}
-\date{\today}
 
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\scshape\centering} % Typsnitt, small caps och centrering
+  {\thesection.}                  % Nummeretikett (inklusive punkt)
+  {0.5em}                         % Avstånd mellan nummer och rubriktext
+  {}                              % Kod som körs direkt innan rubriken
+\titleformat{\subsection}
+  {\normalfont\scshape\centering} % Typsnitt, small caps och centrering
+  {\thesubsection.}                  % Nummeretikett (inklusive punkt)
+  {0.5em}                         % Avstånd mellan nummer och rubriktext
+  {}  
+
+\titleformat{\subsubsection}
+  {\normalfont\scshape\centering} % Typsnitt, small caps och centrering
+  {\thesubsubsection.}                  % Nummeretikett (inklusive punkt)
+  {0.5em}                         % Avstånd mellan nummer och rubriktext
+  {}  
+
+\makeatletter
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\normalfont\MakeUppercase{\@title} \par}% Titel: Normal storlek, versaler
+    \vskip 1.5em%
+    {\normalfont\scshape \@author \par}% Författare: Normal storlek, small caps
+    \vskip 1em%
+    {\normalfont\scshape \@date}% Datum (om det anges)
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+
+
+\title{Riemanns avbildningssats}
+\author{Melker Larsson och Hugo Tängdén}
+\date{Våren 2026}
 
 \begin{document}
+
 \maketitle
 
-\newpage
+
+\section{Normalfamiljer}
+
+\begin{equation}
+	\phi = \rvec{1, 2, 3, 4}
+	\label{eq:något_namn}
+\end{equation}
 
 
+
+\begin{definition}
+	En \emph{normalfamilj} $\mathscr{F}$ är
+\end{definition}
+
+\begin{remark}
+	Detta är en bra defintion.
+\end{remark}
+\begin{example}
+	Här är ett exempel
+\end{example}
+\subsection{NeNejj}
+\begin{lemma}
+	Detta är vårt lemma $\phi$.
+\end{lemma}
+\begin{theorem}[Riemanns avbildningssats]
+	Så här är satsen.
+\end{theorem}
+
+
+\begin{proof}
+	Här är beviset för satsen. Vi använder \eqref{eq:något_namn}
+\end{proof}
 \end{document}
