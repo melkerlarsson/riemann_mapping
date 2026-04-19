@@ -1,10 +1,12 @@
-\documentclass[]{article}
+\documentclass{article}
 \usepackage[swedish]{babel}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{microtype}
 \usepackage{graphicx}
+\usepackage[a4paper, margin=2.5cm]{geometry}
 
 \input{common.tex}
 
@@ -56,34 +58,9 @@
 
 
 \section{Normalfamiljer}
+\input{normalfamilj}
 
-\begin{equation}
-	\phi = \rvec{1, 2, 3, 4}
-	\label{eq:något_namn}
-\end{equation}
+\section{Riemanns avbildningssats}
+\input{riemann}
 
-
-
-\begin{definition}
-	En \emph{normalfamilj} $\mathscr{F}$ är
-\end{definition}
-
-\begin{remark}
-	Detta är en bra defintion.
-\end{remark}
-\begin{example}
-	Här är ett exempel
-\end{example}
-\subsection{NeNejj}
-\begin{lemma}
-	Detta är vårt lemma $\phi$.
-\end{lemma}
-\begin{theorem}[Riemanns avbildningssats]
-	Så här är satsen.
-\end{theorem}
-
-
-\begin{proof}
-	Här är beviset för satsen. Vi använder \eqref{eq:något_namn}
-\end{proof}
 \end{document}

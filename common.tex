@@ -24,7 +24,7 @@
 
 \NewDocumentCommand{\cvec}{m}
 {
-	\ensuremath{l
+	\ensuremath{
 		\begin{bmatrix}
 			\clist_use:nn { #1 } { \\ }
 		\end{bmatrix}
@@ -35,3 +35,6 @@
 
 
 \renewcommand{\phi}{\varphi}
+
+\renewcommand{\H}{\mathscr{H}}
+\newcommand{\F}{\mathscr{F}}
