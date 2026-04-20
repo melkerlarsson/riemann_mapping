@@ -3,6 +3,18 @@
 
 \end{definition}
 
+\begin{definition}[Tät]
+    
+\end{definition}
+
+\begin{definition}[Uppräknelig]
+En mängd är uppräknelig om den är begränsad eller om det existerar en bijektiv avbildning av de naturliga talen på mängden.
+\end{definition}
+
+\begin{theorem}
+    Bolzano-Weierstra\ss~sats håller även för komplexa tal.
+\end{theorem}
+
 \begin{definition}[Normalfamilj]
 	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje sekvens av funktioner tagna från $\F$ innehåller en subsekvens som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
 \end{definition}
@@ -12,8 +24,7 @@
 	\begin{equation*}
 		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{a_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{a_k} = 0.
 	\end{equation*}
-
-    Familjen $\F$ är en normalfamilj.
+Familjen $\F$ är en normalfamilj.
 \end{example}
 
 \begin{definition}[Likformigt begränsad familj]
@@ -67,8 +78,28 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
     \end{equation}
     Med detta samband går det nu utan större svårigheter att finna ett tal $\delta$ givet ett $\epsilon > 0$ sådant att då $\vert z_0 - z_1 \vert < \delta$ kommer $\vert f(z_0) - f(z_1) \vert < \epsilon$. Vi ser genom insättning i \eqref{eq:equicontinuous2} att detta uppfylls av
 
-    \begin{equation*}
+    \begin{equation}
+        \label{eq:equidelta}
         \delta = \frac{\delta_n}{2M_{n+1}}.
+    \end{equation}
+    Vi kan med detta nu börja undersöka den likformiga konvergensen hos subsekvenser av sekvenser till $\F$. Låt $F = \{ f_i \}$ vara en sekvens av funktioner tagna från den likformigt begränsade $\F$. Vi konstruerar en uppräknelig mängd $E$ som är tät i $\Omega$, och ordnar dessa i en sekvens $\{ z_i \}$.
+
+    Låt oss nu skapa en ny sekvens genom att utvärdera sekvensen $F$ i den första punkten tagen ur $E$, $z_1$. Eftersom denna sekvensen, enligt antagandet att familjen $\F$ är likformigt begränsad, är en begränsad sekvens av komplexa tal. Bolzano-Weierstra\ss~sats ger oss då att det existerar en subsekvens till $F$ som är konvergent. Vi bildar nu sekvensen med de funktioner som är med i den konvergenta subsekvensen till $F$ utvärderad i $z_1$, och benämner denna sekvens $F_1 = \{ f_{1,i}\}$. Låt oss nu utvärdera sekvensen $F_1$ i punkten $z_2$ och inse att denna sekvens har en konvergent subsekvens. Funktionerna som utvärderas i denna sekvens inkluderar vi i en ny följd vi benämner $F_2$. Vi fortsätter på detta vis, så att följden $F_k = \{ f_{k,i}\}$ konvergerar i punkterna $z_{1..k}$. 
+
+    Vi inser att sekvensen $F_2$ fortfarande konvergerar i både punkterna $z_1$ och $z_2$då det första elementet $f_{2,1}$ byts ut mot elementet $f_{1,1}$. Då det görs induktivt får vi diagonalföljden $F_{D} = \{ f_{i,i}\}$ som konvergerar i samtliga punkter ur $E$. Vi använder att en talföljd är konvergent om och endast om den är en Cauchyföljd och uttrycker detta som att för samtliga $\epsilon > 0$ existerar det ett $N$ så att
+    \begin{equation}
+        \label{eq:diagcauchy}
+        \vert f_{n, n}(z_i) - f_{m, m}(z_i) \vert < \epsilon \text{,  $\forall n, m > N$ och $\forall i \in \mathbb{N}$.}
+    \end{equation}
+    Låt oss nu visa att $F_D$är konvergent för alla punkter i $\Omega$. Vi väljer ett $K_N$, väljer $\delta$ enligt \eqref{eq:equidelta}. Från att $E$ är tät i $\Omega$ följer att $K_N$ täcks av unionen av diskar med radie $\delta$ centrerade kring punkterna i $E \bigcap K_N $. Vi väljer ett $z \in D(z_i, \delta)$ och nyttjar triangelolikheten för att få
+    \begin{align*}
+        \vert f_{n,n}(z) - f_{m,m}(z) \vert &= \vert f_{n,n}(z) - f_{n,n}(z_i) + f_{n,n}(z_i) - f_{m,m}(z_i) + f_{m,m}(z_i) - f_{m,m}(z) \vert \\ 
+                                            &\le \vert f_{n,n}(z) - f_{n,n}(z_i) \vert + \vert f_{n,n}(z_i) - f_{m,m}(z_i) \vert + \vert f_{m,m}(z_i) - f_{m,m}(z) \vert
+    \end{align*}
+    Eftersom $\vert z - z_i \vert < \delta$ får vi, från hur vi valde vårt $\delta$, att den första och tredje termen båda är mindre än $\epsilon$. Den andra termen är enligt \eqref{eq:diagcauchy} mindre än $\epsilon$. Vi har därmed visat att
+    \begin{equation*}
+        \vert f_{n,n}(z) - f_{m,m}(z) \vert < 3\epsilon, \hskip 5pt \forall z \in K_N.
     \end{equation*}
+    Då ett och samma $\epsilon$ ger konvergens för samtliga punkter i $K_N$ har vi visat att $F_D$ konvergerar likformigt i $K_N$. Då vi låter $n \to \infty$ så går $K_N \to \Omega$ och vi ser att följden $F_D$ konvergerar likformigt på $\Omega$. Vi ser alltså att det för varje sekvens av funktioner ur $\F$ går att hitta en subsekvens som konvergerar likformigt på $\Omega$. Familjen $\F$ är en normalfamilj.
 \end{proof}
 
