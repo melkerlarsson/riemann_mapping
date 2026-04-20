@@ -1,0 +1,53 @@
+\begin{definition}[Konform avbildning]
+
+\end{definition}
+
+
+
+\begin{definition}[Konform ekvivalens]
+
+\end{definition}
+
+\begin{theorem}[Riemanns avbildningssats]
+	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ är konformt ekvivalent med den öppna enhetsdisken $U$.
+\end{theorem}
+
+\begin{proof}
+	Låt $\Omega \subset \mathbb{C}$ vara ett enkelt sammanhängande område och $w_0$ en punkt utanför $\Omega$. Bilda mängden
+	\begin{equation*}
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi \text{ lägger } \Omega \text{ i } U\}.
+	\end{equation*}
+	Med att $\Psi$ lägger $\Omega$ i $U$ menas att $\Psi(z) \in U$ för alla $z \in \Omega$.
+
+	Vi börjar med att visa att mängden $\Sigma$ inte är tom -- det vill säga att det existerar någon funktion $\Psi$ som uppfyller dessa krav. Betrakta en funktion $\phi$ som uppfyller
+	\begin{equation} \label{eq:phi^2}
+		\phi^2(z) = z - w_0 \quad z \in \Omega.
+	\end{equation}
+	Att en sådan funktion faktiskt existerar följer av att $w_0$ inte ligger i $\Omega$, och att $\Omega$ är enkelt sammanhängande. Eftersom $w_0 \notin \Omega$ så är $z-w_0 \neq 0$. Alltså hamnar ingen punkt $z$ i origo efter translationen. Dessutom kommer inte det translaterade området att omsluta origo, eftersom $\Omega$ är enkelt sammanhängande. Detta innebär att det existerar någon gren av logaritm så att
+	\begin{equation*}
+		\phi(z) = (z-w_0)^{\frac{1}{2}} = e^{\frac{1}{2} \Log(z-w_0)}.
+	\end{equation*}
+	Beroende på hur $\Omega$ ser ut, kan vi behöva välja ett grensnitt som inte är en linje utan en kurva. Då kommer intervallet för argument som tillåts att ändras beroende på $\vert z \vert$, men fortfarande vara entydigt. Det finns alltså en funktion $\phi \in \H(\Omega)$ som uppfyller \eqref{eq:phi^2}.
+
+	Låt oss nu visa att $\phi$ också är injektiv. Tag $z_1, z_2 \in \Omega$. Då är
+	\begin{equation*}
+		\phi(z_1) = e^{\frac{1}{2} \Log(z_1-w_0)} \quad \text{och} \quad \phi(z_2) = e^{\frac{1}{2} \Log(z_2-w_0)}.
+	\end{equation*}
+	Sätter vi $\phi(z_1) = \phi(z_2)$ och kvadrerar båda sidor får vi att
+	\begin{equation*}
+		z_1 - w_0 = z_2 - w_0 \quad \iff \quad z_1 = z_2.
+	\end{equation*}
+	På liknande sätt visar vi att det inte finns $z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. Enligt argumentet ovan måste $z_1 = z_2$ vilket ger
+	\begin{align*}
+		\phi(z_1)                              & = -\phi(z_2)                    \\
+		\implies e^{\frac{1}{2} \Log(z_1-w_0)} & = e^{\frac{1}{2} \Log(z_1-w_0)} \\
+		\iff e^{\frac{1}{2} \Log(z_1-w_0)}     & = 0.                            \\
+	\end{align*}
+	Eftersom det inte finns något $w \in \mathbb{C}$ så att $e^w = 0$, finns det inte något $z_1$ som uppfyller likheten ovan.
+    
+	Vi visar nu att det, med hjälp av detta $\phi$, går att definiera en funktion $\Psi \in \Sigma$. Bilda
+    \begin{equation}
+        \Psi 
+    \end{equation}
+
+\end{proof}
