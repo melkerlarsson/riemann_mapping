@@ -43,6 +43,13 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
         D(z_0, 2\delta_n) \subset K_{n+1}.
     \end{equation*}
     Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. Med Cauchy's integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth, trim=0 3cm 0 2.5cm, clip]{figures/normalfamily1.png}
+        \end{center}
+        \caption{Visualisering över delmängderna $K_n$ och $K_{n+1}$ av $\Omega$ samt punkterna $z_0$ och $z_1$.}\label{fig:normalfamily1}
+    \end{figure}
+    
     \begin{equation*}
         f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \left( \frac{1}{\xi - z_0} - \frac{1}{\xi - z_1} \right) d\xi.
     \end{equation*}
