@@ -42,12 +42,12 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
     \begin{equation*}
         D(z_0, 2\delta_n) \subset K_{n+1}.
     \end{equation*}
-    Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. Med Cauchy's integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
+    Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. En visualisering av samtliga mängder, punkter och kurvor återfinns i figur \ref{fig:normalfamily1}. Med Cauchy's integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
     \begin{figure}
         \begin{center}
-            \includegraphics[width=0.8\textwidth, trim=0 3cm 0 2.5cm, clip]{figures/normalfamily1.png}
+            \includegraphics[width=0.7\textwidth]{figures/normalfamily1draft2.png}
         \end{center}
-        \caption{Visualisering över delmängderna $K_n$ och $K_{n+1}$ av $\Omega$ samt punkterna $z_0$ och $z_1$.}\label{fig:normalfamily1}
+        \caption{Visualisering över mängderna $\Omega$, $K_n$ och $K_{n+1}$, punkterna $z_0$ och $z_1$ samt kurvan $\gamma$.}\label{fig:normalfamily1}
     \end{figure}
     
     \begin{equation*}
@@ -103,10 +103,9 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
         \vert f_{n,n}(z) - f_{m,m}(z) \vert &= \vert f_{n,n}(z) - f_{n,n}(z_i) + f_{n,n}(z_i) - f_{m,m}(z_i) + f_{m,m}(z_i) - f_{m,m}(z) \vert \\ 
                                             &\le \vert f_{n,n}(z) - f_{n,n}(z_i) \vert + \vert f_{n,n}(z_i) - f_{m,m}(z_i) \vert + \vert f_{m,m}(z_i) - f_{m,m}(z) \vert
     \end{align*}
-    Eftersom $\vert z - z_i \vert < \delta$ får vi, från hur vi valde vårt $\delta$, att den första och tredje termen båda är mindre än $\epsilon$. Den andra termen är enligt \eqref{eq:diagcauchy} mindre än $\epsilon$. Vi har därmed visat att
+    Eftersom $\vert z - z_i \vert < \delta$ får vi, från vårt val av $\delta$, att den första och tredje termen båda är mindre än $\epsilon$. Den andra termen är enligt \eqref{eq:diagcauchy} mindre än $\epsilon$. Vi har därmed visat att
     \begin{equation*}
         \vert f_{n,n}(z) - f_{m,m}(z) \vert < 3\epsilon, \hskip 5pt \forall z \in K_N.
     \end{equation*}
     Då ett och samma $\epsilon$ ger konvergens för samtliga punkter i $K_N$ har vi visat att $F_D$ konvergerar likformigt i $K_N$. Då vi låter $n \to \infty$ så går $K_N \to \Omega$ och vi ser att följden $F_D$ konvergerar likformigt på $\Omega$. Vi ser alltså att det för varje sekvens av funktioner ur $\F$ går att hitta en subsekvens som konvergerar likformigt på $\Omega$. Familjen $\F$ är en normalfamilj.
 \end{proof}
-
