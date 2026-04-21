@@ -8,7 +8,7 @@
 \end{definition}
 
 \begin{definition}[Uppräknelig]
-En mängd är uppräknelig om den är begränsad eller om det existerar en bijektiv avbildning av de naturliga talen på mängden.
+En mängd är uppräknelig om den är ändlig eller då det existerar en bijektiv avbildning av de naturliga talen på mängden.
 \end{definition}
 
 \begin{theorem}
@@ -16,11 +16,11 @@ En mängd är uppräknelig om den är begränsad eller om det existerar en bijek
 \end{theorem}
 
 \begin{definition}[Normalfamilj]
-	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje sekvens av funktioner tagna från $\F$ innehåller en subsekvens som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
+	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje funktionsföljd tagna från $\F$ innehåller en delföljd som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
 \end{definition}
 
 \begin{example}
-    Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, \vert z \vert \le \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en sekvens $\{ f_k(z) = z^{a_k} \}$ där $\{a_k\}$ är en ökande sekvens av naturliga tal. Vi har att
+    Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, \vert z \vert \le \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en följd $\{ f_k(z) = z^{a_k} \}$ där $\{a_k\}$ är en ökande följd av naturliga tal. Vi har att
 	\begin{equation*}
 		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{a_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{a_k} = 0.
 	\end{equation*}
@@ -28,7 +28,7 @@ Familjen $\F$ är en normalfamilj.
 \end{example}
 
 \begin{definition}[Likformigt begränsad familj]
-    Vi säger att $\F \subset \H(\Omega)$ är likformigt begränsad då det existerar ett begränsat tal $M$ sådant att $\vert f(z) \vert < M$ för alla $z \in \Omega$ och $f \in \F$.
+    Vi säger att $\F \subset \H(\Omega)$ är likformigt begränsad då det existerar ett tal $M$ sådant att $\vert f(z) \vert < M$ för alla $z \in \Omega$ och $f \in \F$.
 \end{definition}
 
 Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfamiljer, som kan ses som en motsvarighet till Bolzano-Weierstra\ss~sats i den reella analysen.
@@ -38,11 +38,11 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
 \end{theorem}
 
 \begin{proof}
-    Vi börjar med att definiera en följd av mängder $\{K_n\}$ som är sådana att $K_n$ ligger i det inre till $K_{n+1}$ och att unionen av mängderna är $\Omega$. Från antagandet att $\F$ är likformigt begränsad följer att det till varje $f \in \F$ existerar ett tal $M_n$ sådant att $\vert f(z) \vert \le M_n$ då $z \in M_n$. Tag nu en punkt $z_0$ ur $K_n$. Från definitionen av mängderna får vi att det existerar $\delta_n>0$ sådant att
+    Vi börjar med att definiera en följd av mängder $\{K_n\}$ som är sådana att $K_n$ ligger i det inre till $K_{n+1}$ och att unionen av mängderna är $\Omega$. Från antagandet att $\F$ är likformigt begränsad följer att det till varje $f \in \F$ existerar ett tal $M_n$ sådant att $\vert f(z) \vert \le M_n$ då $z \in K_n$. Tag nu en punkt $z_0$ ur $K_n$. Från definitionen av mängderna får vi att det existerar $\delta_n>0$ sådant att
     \begin{equation*}
         D(z_0, 2\delta_n) \subset K_{n+1}.
     \end{equation*}
-    Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. En visualisering av samtliga mängder, punkter och kurvor återfinns i figur \ref{fig:normalfamily1}. Med Cauchy's integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
+    Vi tar nu en andra punkt $z_1$ sådan att $\vert z_1 - z_0 \vert < \delta_n$ och låter $\gamma$ vara den positivt orienterade cirkeln med mittpunkt i $z_0$ och radie $2\delta_n$. En visualisering av samtliga mängder, punkter och kurvor återfinns i figur \ref{fig:normalfamily1}. Med Cauchys integralformel kan vi beräkna $(f(z_0) - f(z_1))$ enligt
     \begin{figure}
         \begin{center}
             \includegraphics[width=0.7\textwidth]{figures/normalfamily1draft2.png}
@@ -57,14 +57,14 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
     \begin{equation*}
         f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \frac{z_0 - z_1}{(\xi - z_0)(\xi - z_1)} d\xi.
     \end{equation*}
-    Vilket ger oss att
+    Då vi utvärderar absolutbeloppet av uttrycken erhåller vi att
     \begin{equation*}
-        \vert f(z_0) - f(z_1) \vert = \vert z_0 - z_1 \vert \cdot \vert \int_{\gamma} \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} d\xi \vert.
+        \vert f(z_0) - f(z_1) \vert = \vert z_0 - z_1 \vert \cdot \left| \int_{\gamma} \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} d\xi \right|.
     \end{equation*}
-    Vi uttnyttjar ML-olikheten på integraluttrycket för att få fram
+    Vi utnyttjar ML-olikheten på integraluttrycket för att få fram
     \begin{equation}
         \label{eq:equicontinuous1}
-        \vert f(z_0) - f(z_1) \vert \leq \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\vert \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \vert.
+        \vert f(z_0) - f(z_1) \vert \leq \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right|.
     \end{equation}
     Storleken av $\vert \xi - z_0 \vert$ är given då $\xi \in \gamma$. Vi noterade även tidigare att det existerar ett tal $M_{n+1}$ så att $\vert f(\xi) \vert \le M_{n+1}$ då $z \in \gamma \subset K_{n+1}$. För att hantera faktorn $\vert \xi - z_1 \vert$ använder vi triangelolikheten för att få 
     \begin{equation*}
@@ -76,36 +76,36 @@ Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmä
     \end{equation*}
     Med detta kan vi skriva om det högra uttrycket i \eqref{eq:equicontinuous1} enligt
     \begin{equation*}
-        4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\vert \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \vert < \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \frac{M_{n+1}}{2 \delta_n \cdot \delta_n } = \vert z_0 - z_1 \vert \cdot \frac{2 M_{n+1}}{\delta_n}.
+        4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right| < \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \frac{M_{n+1}}{2 \delta_n \cdot \delta_n } = \vert z_0 - z_1 \vert \cdot \frac{2 \pi M_{n+1}}{\delta_n}.
     \end{equation*}
     Vi kan nu återvända till \eqref{eq:equicontinuous1} och finner sambandet
     \begin{equation}
         \label{eq:equicontinuous2}
-        \vert f(z_0) - f(z_1) \vert < \vert z_0 - z_1 \vert \cdot \frac{2 M_{n+1}}{\delta_n}.
+        \vert f(z_0) - f(z_1) \vert < \vert z_0 - z_1 \vert \cdot \frac{2 \pi M_{n+1}}{\delta_n}.
     \end{equation}
     Med detta samband går det nu utan större svårigheter att finna ett tal $\delta$ givet ett $\epsilon > 0$ sådant att då $\vert z_0 - z_1 \vert < \delta$ kommer $\vert f(z_0) - f(z_1) \vert < \epsilon$. Vi ser genom insättning i \eqref{eq:equicontinuous2} att detta uppfylls av
 
     \begin{equation}
         \label{eq:equidelta}
-        \delta = \frac{\delta_n}{2M_{n+1}}.
+        \delta = \frac{\epsilon \delta_n}{2 \pi M_{n+1}}.
     \end{equation}
-    Vi kan med detta nu börja undersöka den likformiga konvergensen hos subsekvenser av sekvenser till $\F$. Låt $F = \{ f_i \}$ vara en sekvens av funktioner tagna från den likformigt begränsade $\F$. Vi konstruerar en uppräknelig mängd $E$ som är tät i $\Omega$, och ordnar dessa i en sekvens $\{ z_i \}$.
+    Vi kan med detta börja undersöka den likformiga konvergensen hos delföljder av följder till $\F$. Låt $F = \{ f_i \}$ vara en funktionsföljd tagen från den likformigt begränsade $\F$. Vi konstruerar en uppräknelig mängd $E$ som är tät i $\Omega$, och ordnar dessa i en följd $\{ z_i \}$.
 
-    Låt oss nu skapa en ny sekvens genom att utvärdera sekvensen $F$ i den första punkten tagen ur $E$, $z_1$. Eftersom denna sekvensen, enligt antagandet att familjen $\F$ är likformigt begränsad, är en begränsad sekvens av komplexa tal. Bolzano-Weierstra\ss~sats ger oss då att det existerar en subsekvens till $F$ som är konvergent. Vi bildar nu sekvensen med de funktioner som är med i den konvergenta subsekvensen till $F$ utvärderad i $z_1$, och benämner denna sekvens $F_1 = \{ f_{1,i}\}$. Låt oss nu utvärdera sekvensen $F_1$ i punkten $z_2$ och inse att denna sekvens har en konvergent subsekvens. Funktionerna som utvärderas i denna sekvens inkluderar vi i en ny följd vi benämner $F_2$. Vi fortsätter på detta vis, så att följden $F_k = \{ f_{k,i}\}$ konvergerar i punkterna $z_{1..k}$. 
+    Låt oss nu skapa en talföljd genom att utvärdera följden $F$ i punkten $z_1$. Eftersom denna följd, enligt antagandet att familjen $\F$ är likformigt begränsad, är en begränsad komplexvärd talföljd ger Bolzano-Weierstra\ss~sats att det existerar en delföljd som är konvergent. Vi bildar nu följden med de funktioner som är med i den konvergenta delföljden till $F$ utvärderad i $z_1$, och benämner denna följd $F_1 = \{ f_{1,i}\}$. Låt oss nu utvärdera följden $F_1$ i punkten $z_2$ och inse att denna följd har en konvergent delföljd. Funktionerna som utvärderas i denna följd inkluderar vi i en ny följd vi benämner $F_2$. Vi fortsätter på detta vis, så att följden $F_k = \{ f_{k,i}\}$ konvergerar i punkterna $z_{1..k}$. 
 
-    Vi inser att sekvensen $F_2$ fortfarande konvergerar i både punkterna $z_1$ och $z_2$då det första elementet $f_{2,1}$ byts ut mot elementet $f_{1,1}$. Då det görs induktivt får vi diagonalföljden $F_{D} = \{ f_{i,i}\}$ som konvergerar i samtliga punkter ur $E$. Vi använder att en talföljd är konvergent om och endast om den är en Cauchyföljd och uttrycker detta som att för samtliga $\epsilon > 0$ existerar det ett $N$ så att
+    Vi inser att följden $F_2$ fortfarande konvergerar i både punkterna $z_1$ och $z_2$ då det första elementet $f_{2,1}$ byts ut mot elementet $f_{1,1}$. Då det görs induktivt får vi diagonalföljden $F_{D} = \{ f_{i,i}\}$ som konvergerar i samtliga punkter ur $E$. Vi använder att en talföljd är konvergent om och endast om den är en Cauchyföljd och uttrycker detta som att för samtliga punkter $z_i$ och $\epsilon > 0$ existerar det ett $N$ så att
     \begin{equation}
         \label{eq:diagcauchy}
-        \vert f_{n, n}(z_i) - f_{m, m}(z_i) \vert < \epsilon \text{,  $\forall n, m > N$ och $\forall i \in \mathbb{N}$.}
+        \vert f_{n, n}(z_i) - f_{m, m}(z_i) \vert < \epsilon \text{,  $\forall n, m > N$.}
     \end{equation}
-    Låt oss nu visa att $F_D$är konvergent för alla punkter i $\Omega$. Vi väljer ett $K_N$, väljer $\delta$ enligt \eqref{eq:equidelta}. Från att $E$ är tät i $\Omega$ följer att $K_N$ täcks av unionen av diskar med radie $\delta$ centrerade kring punkterna i $E \bigcap K_N $. Vi väljer ett $z \in D(z_i, \delta)$ och nyttjar triangelolikheten för att få
+    Låt oss nu visa att $F_D$ är konvergent för alla punkter i $\Omega$. Vi väljer ett $K_n$, väljer $\delta$ enligt \eqref{eq:equidelta}. Från att $E$ är tät i $\Omega$, och att $K_n$ är kompakt, följer att $K_n$ täcks av unionen av diskar med radie $\delta$ centrerade kring någon ändlig delmängd av punkterna i $E \bigcap K_n $. Vi väljer ett $z \in D(z_i, \delta)$ och nyttjar triangelolikheten för att få
     \begin{align*}
         \vert f_{n,n}(z) - f_{m,m}(z) \vert &= \vert f_{n,n}(z) - f_{n,n}(z_i) + f_{n,n}(z_i) - f_{m,m}(z_i) + f_{m,m}(z_i) - f_{m,m}(z) \vert \\ 
                                             &\le \vert f_{n,n}(z) - f_{n,n}(z_i) \vert + \vert f_{n,n}(z_i) - f_{m,m}(z_i) \vert + \vert f_{m,m}(z_i) - f_{m,m}(z) \vert
     \end{align*}
-    Eftersom $\vert z - z_i \vert < \delta$ får vi, från vårt val av $\delta$, att den första och tredje termen båda är mindre än $\epsilon$. Den andra termen är enligt \eqref{eq:diagcauchy} mindre än $\epsilon$. Vi har därmed visat att
+    Eftersom $\vert z - z_i \vert < \delta$ får vi, från vårt val av $\delta$, att den första och tredje termen båda är mindre än $\epsilon$. Den andra termen är enligt \eqref{eq:diagcauchy} mindre än $\epsilon$ då $n$ och $m$ är större än något $N$ som beror på punkten $z_i$. Men då vi numera enbart studerar en ändlig mängd med punkter $z_i$ kan vi välja det största $N$ som någon punkt ger upphov till. Vi har därmed visat att
     \begin{equation*}
-        \vert f_{n,n}(z) - f_{m,m}(z) \vert < 3\epsilon, \hskip 5pt \forall z \in K_N.
+        \vert f_{n,n}(z) - f_{m,m}(z) \vert < 3\epsilon, \hskip 5pt \forall z \in K_n \text{ då }n, m > N.
     \end{equation*}
-    Då ett och samma $\epsilon$ ger konvergens för samtliga punkter i $K_N$ har vi visat att $F_D$ konvergerar likformigt i $K_N$. Då vi låter $n \to \infty$ så går $K_N \to \Omega$ och vi ser att följden $F_D$ konvergerar likformigt på $\Omega$. Vi ser alltså att det för varje sekvens av funktioner ur $\F$ går att hitta en subsekvens som konvergerar likformigt på $\Omega$. Familjen $\F$ är en normalfamilj.
+    Då ett och samma $\epsilon$ ger konvergens för samtliga punkter i $K_n$ har vi visat att $F_D$ konvergerar likformigt i $K_n$. Varje kompakt delmängd till $\Omega$ ligger dessutom i $K_n$ för något tillräckligt stort $n$, varför vi har visat att det existerar en delföljd till varje följd ur $\F$ som konvergerar likformigt på varje kompakt delmängd till $\Omega$. Familjen $\F$ är en normalfamilj.
 \end{proof}
