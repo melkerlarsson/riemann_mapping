@@ -2,12 +2,16 @@
 
 \end{definition}
 
+\begin{example}
+	Exempel på konform avbildning.
+\end{example}
+
+
 
 
 \begin{definition}[Konform ekvivalens]
 
 \end{definition}
-
 \begin{theorem}[Riemanns avbildningssats]
 	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ är konformt ekvivalent med den öppna enhetsdisken $U$.
 \end{theorem}
@@ -29,6 +33,15 @@
 	\end{equation*}
 	Beroende på hur $\Omega$ ser ut, kan vi behöva välja ett grensnitt som inte är en linje utan en kurva. Då kommer intervallet för argument som tillåts att ändras beroende på $\vert z \vert$, men fortfarande vara entydigt. Det finns alltså en funktion $\phi \in \H(\Omega)$ som uppfyller \eqref{eq:phi^2}.
 
+	%
+	% \begin{figure}
+	% 	\begin{center}
+	% 		\includegraphics[width=0.95\textwidth]{figures/}
+	% 	\end{center}
+	% 	\caption{Området $\Omega$ efter translation med $-w_0$. Det går att välja en kurva som grensnitt. }\label{fig:grensnitt_kurva}
+	% \end{figure}
+	%
+
 	Låt oss nu visa att $\phi$ också är injektiv. Tag $z_1, z_2 \in \Omega$. Då är
 	\begin{equation*}
 		\phi(z_1) = e^{\frac{1}{2} \Log(z_1-w_0)} \quad \text{och} \quad \phi(z_2) = e^{\frac{1}{2} \Log(z_2-w_0)}.
@@ -39,15 +52,13 @@
 	\end{equation*}
 	På liknande sätt visar vi att det inte finns $z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. Enligt argumentet ovan måste $z_1 = z_2$ vilket ger
 	\begin{align*}
-		\phi(z_1)                              & = -\phi(z_2)                    \\
-		\implies e^{\frac{1}{2} \Log(z_1-w_0)} & = e^{\frac{1}{2} \Log(z_1-w_0)} \\
-		\iff e^{\frac{1}{2} \Log(z_1-w_0)}     & = 0.                            \\
+		\phi(z_1)                              & = -\phi(z_2)                     \\
+		\implies e^{\frac{1}{2} \Log(z_1-w_0)} & = -e^{\frac{1}{2} \Log(z_1-w_0)} \\
+		\iff e^{\frac{1}{2} \Log(z_1-w_0)}     & = 0.                             \\
 	\end{align*}
 	Eftersom det inte finns något $w \in \mathbb{C}$ så att $e^w = 0$, finns det inte något $z_1$ som uppfyller likheten ovan.
-    
-	Vi visar nu att det, med hjälp av detta $\phi$, går att definiera en funktion $\Psi \in \Sigma$. Bilda
-    \begin{equation}
-        \Psi 
-    \end{equation}
+
+	Eftersom $\phi$ är en öppen avbildning?, det vill säga att $\phi(\Omega)$ är en öppen mängd, så finns en disk D(a; r)...
+
 
 \end{proof}
