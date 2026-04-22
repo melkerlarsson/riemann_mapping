@@ -12,6 +12,12 @@
 \begin{definition}[Konform ekvivalens]
 
 \end{definition}
+
+
+\begin{theorem}\label{th:öppna_områden_bevaras}
+	Öppna områden, samt enkel sammanhängande områden behvaras under en holomorf avbildning.
+\end{theorem}
+
 \begin{theorem}[Riemanns avbildningssats]
 	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ är konformt ekvivalent med den öppna enhetsdisken $U$.
 \end{theorem}
@@ -42,23 +48,54 @@
 	% \end{figure}
 	%
 
-	Låt oss nu visa att $\phi$ också är injektiv. Tag $z_1, z_2 \in \Omega$. Då är
+	Låt oss nu visa att $\phi$ också är injektiv. Tag $z_1, z_2 \in \Omega$. Då är enligt \eqref{eq:phi^2}
 	\begin{equation*}
-		\phi(z_1) = e^{\frac{1}{2} \Log(z_1-w_0)} \quad \text{och} \quad \phi(z_2) = e^{\frac{1}{2} \Log(z_2-w_0)}.
+		\phi(z_1)^2 = z_1 - w_0 \quad \text{och} \quad \phi(z_2) = z_2 - w_0.
 	\end{equation*}
-	Sätter vi $\phi(z_1) = \phi(z_2)$ och kvadrerar båda sidor får vi att
-	\begin{equation*}
-		z_1 - w_0 = z_2 - w_0 \quad \iff \quad z_1 = z_2.
-	\end{equation*}
-	På liknande sätt visar vi att det inte finns $z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. Enligt argumentet ovan måste $z_1 = z_2$ vilket ger
-	\begin{align*}
-		\phi(z_1)                              & = -\phi(z_2)                     \\
-		\implies e^{\frac{1}{2} \Log(z_1-w_0)} & = -e^{\frac{1}{2} \Log(z_1-w_0)} \\
-		\iff e^{\frac{1}{2} \Log(z_1-w_0)}     & = 0.                             \\
-	\end{align*}
-	Eftersom det inte finns något $w \in \mathbb{C}$ så att $e^w = 0$, finns det inte något $z_1$ som uppfyller likheten ovan.
+	Sätter vi $\phi(z_1) = \phi(z_2)$ får vi att $z_1 = z_2$, vilket visar att $\phi$ är injektiv.
 
-	Eftersom $\phi$ är en öppen avbildning?, det vill säga att $\phi(\Omega)$ är en öppen mängd, så finns en disk D(a; r)...
+	På liknande sätt visar vi att
+	\begin{equation}\label{eq:phi_symmetry}
+		\nexists \quad z_1, z_2 \in \Omega \text{ så att } \phi(z_1) = -\phi(z_2).
+	\end{equation}
+	Antar vi likheten och kvadrerar båda sidor får vi enligt \eqref{eq:phi^2}
+	\begin{equation*}
+		z_1 - w_0 = z_2 - w_0 \iff z_1 = z_2.
+	\end{equation*}
+	Då måste $\phi(z_1) = -\phi(z_1)$ vilket endast kan vara uppfyllt då $\phi(z_1) = 0$. Då är även
+	\begin{equation*}
+		\phi(z_1)^2 = z_1 - w_0 = 0,
+	\end{equation*}
+	vilket endast är uppfyllt om $z_1 = w_0$. Detta motsäger att $z_1 \in \Omega$. Notera alltså att $0 \notin \phi(\Omega)$.
+
+
+
+	Eftersom $\phi$ är holomorf är det enligt sats \ref{th:öppna_områden_bevaras} en avbildning som bevarar öppna områden. Det innebär att det går att hitta en cirkelskiva $D(a, r) \in \phi(\Omega)$, med  $0< r < \vert a\vert$. Denna begränsning på $r$ är inte någon inskränkning eftersom om vi skulle ha en cirkel med större radie än $\vert a\vert$ så gäller det även att en mindre cirkel också ligger i $\phi(\Omega)$. Vi kan även konstatera att cirkelskivan $D(-a, r)$ \emph{inte} ligger i $\phi(\Omega)$, till följd av \eqref{eq:phi_symmetry}. Bilda nu funktionen
+	\begin{equation}
+		\Psi(z) = \frac{r}{\phi(z) +a}.
+	\end{equation}
+	Det gäller att $\Psi \in \H(\Omega)$ och att $\Psi$ är injektiv. Vidare är
+	\begin{equation*}
+		\abs{\Psi(z)} = \abs{\frac{r}{\phi(z) +a}} =\frac{r}{\abs{\phi(z) - (-a)}} < 1,
+	\end{equation*}
+	ty $\abs{\phi(z) - (-a)} > r$ eftersom $D(-a, r) \notin \phi(\Omega)$. Alltså gäller det att $\Psi \in \Sigma$ och mängden är icketom.
+
+	Vi ska nu visa att om $\Psi \in \Sigma$ och $\Psi(\Omega)$ inte täcker hela $U$, och om $z_0 \in \Omega$ så går det att hitta en funktion $\tilde{\Psi}$ som uppfyller
+	\begin{equation*}
+		\abs{\tilde{\Psi}'(z_0)} > \abs{\Psi'(z_0)}.
+	\end{equation*}
+	Vi inför en hjälpfunktion
+	\begin{equation*}
+		\phi_{\alpha}(z) = \frac{z-\alpha}{1-\conj{\alpha}z}, \quad \alpha \in \mathbb{C}.
+	\end{equation*}
+	Lite algebra visar att $\phi_{-\alpha}$ är dess invers:
+	\begin{equation*}
+		\phi_{\alpha} \circ \phi_{-\alpha} (z) = \phi_{\alpha} \left(\frac{z+\alpha}{1+\conj{\alpha}z}\right) = \frac{\frac{z+\alpha}{1+\conj{\alpha}z} - \alpha}{1 - \conj{a}\frac{z+\alpha}{1+\conj{\alpha}z}} = \frac{z+\alpha - \alpha - \alpha\conj{\alpha}z}{1+\conj{\alpha}z - \conj{\alpha}z - \alpha\conj{\alpha}} = \frac{z(1-\alpha\conj{\alpha})}{1 - \alpha\conj{\alpha}} = z.
+	\end{equation*}
+	Det gäller också att $\phi_{\alpha}$ är bijektiv mellan $U$ och $U$.
+
+	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$.
+
 
 
 \end{proof}
