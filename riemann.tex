@@ -18,6 +18,14 @@
 	Öppna områden, samt enkel sammanhängande områden behvaras under en holomorf avbildning.
 \end{theorem}
 
+\begin{lemma}[Schwarz lemma]
+
+\end{lemma}
+
+\begin{theorem}[Rouchés sats]
+
+\end{theorem}
+
 \begin{theorem}[Riemanns avbildningssats]
 	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ är konformt ekvivalent med den öppna enhetsdisken $U$.
 \end{theorem}
@@ -44,7 +52,7 @@
 		\begin{center}
 			\includegraphics[width=0.95\textwidth]{figures/grensnitt.png}
 		\end{center}
-		\caption{Området $\Omega$ och $\phi(\Omega)-w_0$. Det går att välja en kurva som grensnitt. }\label{fig:grensnitt_kurva}
+		\caption{Området $\Omega$ och $\Omega-w_0$. Det går att välja en kurva $\gamma$ som grensnitt. }\label{fig:grensnitt_kurva}
 	\end{figure}
 
 
@@ -70,7 +78,7 @@
 
 
 
-	Eftersom $\phi$ är holomorf är det enligt sats \ref{th:öppna_områden_bevaras} en avbildning som bevarar öppna områden. Det innebär att det går att hitta en cirkelskiva $D(a, r) \in \phi(\Omega)$, med  $0< r < \vert a\vert$. Denna begränsning på $r$ är inte någon inskränkning eftersom om vi skulle ha en cirkel med större radie än $\vert a\vert$ så gäller det även att en mindre cirkel också ligger i $\phi(\Omega)$. Vi kan även konstatera att cirkelskivan $D(-a, r)$ \emph{inte} ligger i $\phi(\Omega)$, till följd av \eqref{eq:phi_symmetry}. Bilda nu funktionen
+	Eftersom $\phi$ är holomorf är det enligt sats \ref{th:öppna_områden_bevaras} en avbildning som bevarar öppna områden. Det innebär att det går att hitta en cirkelskiva $D(a, r) \in \phi(\Omega)$, med  $0< r < \vert a\vert$, se figur \ref{fig:phi(omega)-disk}. Denna begränsning på $r$ är inte någon inskränkning eftersom om vi skulle ha en cirkel med större radie än $\vert a\vert$ så gäller det även att en mindre cirkel också ligger i $\phi(\Omega)$. Vi kan även konstatera att cirkelskivan $D(-a, r)$ \emph{inte} ligger i $\phi(\Omega)$, till följd av \eqref{eq:phi_symmetry}. Bilda nu funktionen
 	\begin{equation}
 		\Psi(z) = \frac{r}{\phi(z) +a}.
 	\end{equation}
@@ -79,6 +87,15 @@
 		\abs{\Psi(z)} = \abs{\frac{r}{\phi(z) +a}} =\frac{r}{\abs{\phi(z) - (-a)}} < 1,
 	\end{equation*}
 	ty $\abs{\phi(z) - (-a)} > r$ eftersom $D(-a, r) \notin \phi(\Omega)$. Alltså gäller det att $\Psi \in \Sigma$ och mängden är icketom.
+
+
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.95\textwidth]{figures/disk.png}
+		\end{center}
+		\caption{Eftersom $\phi(\Omega)$ är öppen finns en disk $D(a, r) \in \phi(\Omega)$. Disken $D(-a, r)$ ligger \emph{inte} i $\phi(\Omega)$.}\label{fig:phi(omega)-disk}
+	\end{figure}
+
 
 	Vi ska nu visa att om $\Psi \in \Sigma$ och $\Psi(\Omega)$ inte täcker hela $U$, och om $z_0 \in \Omega$ så går det att hitta en funktion $\tilde{\Psi}$ som uppfyller
 	\begin{equation*}
@@ -94,8 +111,42 @@
 	\end{equation*}
 	Det gäller också att $\phi_{\alpha}$ är bijektiv mellan $U$ och $U$.
 
-	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$.
+	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$, se figur \ref{fig:psi_omega}. Då gäller att sammansättningen $\phi_{\alpha} \circ \Psi \in \Sigma$ eftersom funktionen är holomorf och injektiv på $\Omega$ samt att $\Psi$ mappar $\Omega$ inuti $U$ och $\phi_{\alpha}$ mappar $U$ på $U$.
 
+
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.95\textwidth]{figures/psi_omega.png}
+		\end{center}
+		\caption{}\label{fig:psi_omega}
+	\end{figure}
+
+
+	Eftersom $a \notin \Psi(\Omega)$ har $\phi_{\alpha} \circ \Psi$ inget nollställe i $\Omega$ ty
+	\begin{equation*}
+		\phi_{\alpha}(z) = 0 \iff z = \alpha.
+	\end{equation*}
+	Det existerar därmed en funktion $g \in \H(\Omega)$ så att
+	\begin{equation} \label{eq:g^2}
+		g^2(z) = \phi_{\alpha} \circ \Psi(z),
+	\end{equation}
+	eftersom $g^2(\Omega)$ är enkelt sammanhängande och med samma argument som tidigare för att det går att definiera en logaritm. Dessutom är $g$ injektiv vilket ger oss att $g \in \Sigma$. Om vi definierar
+	\begin{equation} \label{eq:psi-tilde}
+		\tilde{\Psi} = \phi_{\beta} \circ g,
+	\end{equation}
+	där $\beta = g(z_0)$ så kommer $\tilde{\Psi} \in \Sigma$. Låter vi funktionen $s$ vara kvadratfunktionen, det vill säga $s(w) = w^2$ så kommer det enligt \eqref{eq:g^2} och \eqref{eq:psi-tilde} gälla att
+	\begin{equation}\label{eq:relation_psi_psi-tilde}
+		\Psi = \phi_{-\alpha} \circ s\circ g =\phi_{-\alpha} \circ s \circ \phi_{-\beta} \circ \tilde{\Psi} = F \circ \tilde{\Psi},
+	\end{equation}
+	där $F =\phi_{-\alpha} \circ s \circ \phi_{-\beta}$.
+	Eftersom vi valde $\beta = g(z_0)$ är
+	\begin{equation*}
+		\tilde{\Psi}(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}z_0} = 0.
+	\end{equation*}
+	Därför får vi från \eqref{eq:relation_psi_psi-tilde} och kedjeregeln att
+	\begin{equation*}
+		\Psi'(z_0) = \tilde{\Psi}'(z_0)F'(\tilde{\Psi}(z_0))  = \tilde{\Psi}'(z_0)F'(0).
+	\end{equation*}
 
 
 \end{proof}
