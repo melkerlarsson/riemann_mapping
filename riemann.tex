@@ -145,9 +145,9 @@
 
 
 	Vi ska nu visa att om $\Psi \in \Sigma$ och $\Psi(\Omega)$ inte täcker hela $U$, och om $z_0 \in \Omega$ så går det att hitta en funktion $\tilde{\Psi}$ som uppfyller
-	\begin{equation*}
+	\begin{equation} \label{eq:psi_deriv_bigger}
 		\abs{\tilde{\Psi}'(z_0)} > \abs{\Psi'(z_0)}.
-	\end{equation*}
+	\end{equation}
 	Vi inför en hjälpfunktion
 	\begin{equation*}
 		\phi_{\alpha}(z) = \frac{z-\alpha}{1-\conj{\alpha}z}, \quad \alpha \in \mathbb{C}.
@@ -194,6 +194,8 @@
 	\begin{equation*}
 		\Psi'(z_0) = \tilde{\Psi}'(z_0)F'(\tilde{\Psi}(z_0))  = \tilde{\Psi}'(z_0)F'(0).
 	\end{equation*}
+
+	Vi ser att $F$ uppfyller kraven för Schwarz lemma vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
 
 \end{proof}
