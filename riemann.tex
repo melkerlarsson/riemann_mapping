@@ -179,44 +179,44 @@
 	\end{equation}
 	eftersom $g^2(\Omega)$ är enkelt sammanhängande och med samma argument som tidigare för att det går att definiera en logaritm. Dessutom är $g$ injektiv vilket ger oss att $g \in \Sigma$. Om vi definierar
 	\begin{equation} \label{eq:psi-tilde}
-		\tilde{\Psi} = \phi_{\beta} \circ g,
+		\Psi_1 = \phi_{\beta} \circ g,
 	\end{equation}
-	för något $\beta$ så kommer $\tilde{\Psi} \in \Sigma$. Låter vi funktionen $s$ vara kvadratfunktionen, det vill säga $s(w) = w^2$ så kommer det enligt \eqref{eq:g^2} och \eqref{eq:psi-tilde} gälla att
+	för något $\beta$, så kommer $\Psi_1 \in \Sigma$. Låter vi funktionen $s$ vara kvadratfunktionen, det vill säga $s(w) = w^2$ så kommer det enligt \eqref{eq:g^2} och \eqref{eq:psi-tilde} gälla att
 	\begin{equation}\label{eq:relation_psi_psi-tilde}
-		\Psi = \phi_{-\alpha} \circ s\circ g =\phi_{-\alpha} \circ s \circ \phi_{-\beta} \circ \tilde{\Psi} = F \circ \tilde{\Psi},
+		\Psi = \phi_{-\alpha} \circ s\circ g =\phi_{-\alpha} \circ s \circ \phi_{-\beta} \circ \Psi_1 = F \circ \Psi_1,
 	\end{equation}
 	där $F =\phi_{-\alpha} \circ s \circ \phi_{-\beta}$.
 	Om vi väljer $\beta = g(z_0)$ är
 	\begin{equation*}
-		\tilde{\Psi}(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}z_0} = 0.
+		\Psi_1(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}z_0} = 0.
 	\end{equation*}
 	Därför får vi från \eqref{eq:relation_psi_psi-tilde} och kedjeregeln att
 	\begin{equation*}
-		\Psi'(z_0) = \tilde{\Psi}'(z_0)F'(\tilde{\Psi}(z_0))  = \tilde{\Psi}'(z_0)F'(0).
+		\Psi'(z_0) = \Psi_1'(z_0)F'(\Psi_1(z_0))  = \Psi_1'(z_0)F'(0).
 	\end{equation*}
 
 	Vi ser att $F$ uppfyller kraven för Schwarz lemma vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
-    Vi definierar nu
-    \begin{equation*}
-        \eta = \sup \{ |\Psi'(z_0)| : \Psi \in \Sigma \}.
-    \end{equation*}
-    Eftersom $\Sigma$ inte är tom, och funktionerna däri är injektiva, följer att $\eta > 0$. Vi vet att $\Sigma$ är likformigt begränsad då $\abs{\Psi(z)} < 1$ då $z \in \Omega$. Därutöver ser vi att $\abs{\Psi'}$ är kontinuerlig på kompakta delmängder till $\Omega$, varav det följer från Weierstra\ss~extremvärdessats att $\abs{\Psi'}$ är begränsad. Därmed existerar $\eta$ enligt supremumaxiomet.
+	Vi definierar nu
+	\begin{equation*}
+		\eta = \sup \{ |\Psi'(z_0)| : \Psi \in \Sigma \}.
+	\end{equation*}
+	Eftersom $\Sigma$ inte är tom, och funktionerna däri är injektiva, följer att $\eta > 0$. Vi vet att $\Sigma$ är likformigt begränsad då $\abs{\Psi(z)} < 1$ då $z \in \Omega$. Därutöver ser vi att $\abs{\Psi'}$ är kontinuerlig på kompakta delmängder till $\Omega$, varav det följer från Weierstra\ss~extremvärdessats att $\abs{\Psi'}$ är begränsad. Därmed existerar $\eta$ enligt supremumaxiomet.
 
-    Det existerar enligt supremumaxiomet en följd $\{\abs{\Psi'_n(z_0)}\}$ som konvergerar till $\eta$. Eftersom $\Sigma$ är likformigt begränsad följder det att det är en normalfamilj. Ur följden $\Psi_n$ kan vi därför ta en delföljd $\Psi_k$ så att $\Psi_k \xrightarrow{u} \zeta$ för någon funktion $\zeta$. 
+	Det existerar enligt supremumaxiomet en följd $\{\abs{\Psi'_n(z_0)}\}$ som konvergerar till $\eta$. Eftersom $\Sigma$ är likformigt begränsad följder det att det är en normalfamilj. Ur följden $\Psi_n$ kan vi därför ta en delföljd $\Psi_k$ så att $\Psi_k \xrightarrow{u} \zeta$ för någon funktion $\zeta$.
 
-    Det följer av att $\Psi_k \xrightarrow{u} \zeta$ och att $\Psi_k$ är holomorfa att $\Psi'_k \xrightarrow{u} \zeta'$. Följden $\{\abs{\Psi'_k(z_0)}\}$, vilken konvergerar till $\abs{\zeta'(z_0)}$, är därför en delföljd till $\{\abs{\Psi'_n(z_0)}\}$ vilken konvergerar till $\eta$. Det följer att $\abs{\zeta'(z_0)}=\eta$. 
+	Det följer av att $\Psi_k \xrightarrow{u} \zeta$ och att $\Psi_k$ är holomorfa att $\Psi'_k \xrightarrow{u} \zeta'$. Följden $\{\abs{\Psi'_k(z_0)}\}$, vilken konvergerar till $\abs{\zeta'(z_0)}$, är därför en delföljd till $\{\abs{\Psi'_n(z_0)}\}$ vilken konvergerar till $\eta$. Det följer att $\abs{\zeta'(z_0)}=\eta$.
 
-    Låt oss nu visa att $\zeta$ ligger i $\Sigma$ och att den därmed lägger $\Omega$ på $U$. Eftersom $\zeta$ har nollskild derivata i $z_0$ följer det att den inte är konstant. Vi kan då med sats (sats som ska skrivas i framtiden) säga att $\zeta$ är injektiv. Det återstår nu endast att se att den lägger $\Omega$ på $U$. Per definition gäller det att $\Psi_k(\Omega) \subset U$. Antag att det för något $z$ skulle gälla att $\zeta(z) \notin \overline{U}$. Vi kan då inte finna något $z'$ så att
-    \begin{equation*}
-    \abs{\Psi(z') - \zeta(z)} < \epsilon
-    \end{equation*}
-    då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
+	Låt oss nu visa att $\zeta$ ligger i $\Sigma$ och att den därmed lägger $\Omega$ på $U$. Eftersom $\zeta$ har nollskild derivata i $z_0$ följer det att den inte är konstant. Vi kan då med sats (sats som ska skrivas i framtiden) säga att $\zeta$ är injektiv. Det återstår nu endast att se att den lägger $\Omega$ på $U$. Per definition gäller det att $\Psi_k(\Omega) \subset U$. Antag att det för något $z$ skulle gälla att $\zeta(z) \notin \overline{U}$. Vi kan då inte finna något $z'$ så att
+	\begin{equation*}
+		\abs{\Psi(z') - \zeta(z)} < \epsilon
+	\end{equation*}
+	då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
 \end{proof}
 
 \section{Frågor till Mikael Sundqvist Persson}
 \begin{itemize}
-    \item Vilken form av Schwarz lemma är det som ska användas? Funktionen $F$ uppfyller icke att $F(0)=0$.
-    \item Hur visade vi att $\phi_{\alpha}: U \to U$?  (vi glum)
-    \item Hur visar man att absolutbeloppet av en holomorf funktion är kontinuerlig?
+	\item Vilken form av Schwarz lemma är det som ska användas? Funktionen $F$ uppfyller icke att $F(0)=0$.
+	\item Hur visade vi att $\phi_{\alpha}: U \to U$?  (vi glum)
+	\item Hur visar man att absolutbeloppet av en holomorf funktion är kontinuerlig?
 \end{itemize}
