@@ -18,6 +18,52 @@
 	Öppna områden, samt enkel sammanhängande områden behvaras under en holomorf avbildning.
 \end{theorem}
 
+\begin{theorem}[Maximumprincipen]
+	Låt $\Omega$ vara ett öppet slutet område. Antag att $f \in \H(\Omega)$ och kontinuerlig på $\overline{\Omega}$. Om $f$ inte är konstant så antar $f$ max på $\partial \Omega$.
+\end{theorem}
+\begin{proof}
+	Vi visar det kontrapositiva påståendet. Antag att $z_0 \in \Omega$ och att $\abs{f(z_0)}$ är ett lokalt maximum av $\abs{f}$, det vill säga att
+	\begin{equation}\label{eq:max_princ_assump}
+		\abs{f(z)} \le \abs{f(z_0)} \quad \forall z \in \Omega.
+	\end{equation}
+
+	Eftersom $\Omega$ är öppen kan vi skapa en sluten cirkelskiva $D(z_0, R) \subset \Omega$. Då gäller för varje $0 < r \le R$ enligt medelvärdesegenskap att
+	\begin{equation*}
+		f(z_0) = \frac{1}{2\pi} \int_0^{2\pi}{f(z_0 + re^{i\theta}) d\theta}.
+	\end{equation*}
+	Enligt triangelolikheten får vi att
+	\begin{align*}
+		\abs{f(z_0)} & \le \frac{1}{2\pi} \int_0^{2\pi}{\underbrace{\abs{f(z_0+ re^{i\theta})}}_{\le \abs{f(z_0)}} d\theta} \\
+		             & \le \frac{1}{2\pi} \int_0^{2\pi}{\abs{f(z_0)} d\theta} = \abs{f(z_0)},
+	\end{align*}
+	där andra olikheten gäller enligt antagandet \eqref{eq:max_princ_assump}. Likheten i sista steget ger att
+	\begin{align*}
+		\int_0^{2\pi}{\abs{f(z_0)} d\theta}                                  & =  \int_0^{2\pi}{\abs{f(z_0 + re^{i\theta})} d\theta} \\
+		\iff \int_0^{2\pi}{\abs{f(z_0)}-\abs{f(z_0 + re^{i\theta})} d\theta} & = 0.
+	\end{align*}
+	Eftersom integranden är större än 0 enligt antagandet, och det är en kontinuerlig funktion? så måste
+	\begin{equation*}
+		\abs{f(z_0)} - \abs{f(z_0 + re^{i\theta})} = 0 \iff \abs{f(z_0)} = \abs{f(z)} \quad \forall z \in \Omega.
+	\end{equation*}
+	Det följer ur Identitessatsen för holomorfa funktioner att
+	\begin{equation*}
+		\abs{f(z)} = \abs{f(z_0)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \mathbb{C}.
+	\end{equation*}
+	Vi visar nu att även $f(z)$ måste vara konstant. Från ekvationen ovan kan vi skriva
+	\begin{equation*}
+		\abs{f(z)}^2 = f(z)\conj{f(z)} = M^2.
+	\end{equation*}
+	Fallet $M=0$ ger direkt $f(z) \equiv 0$. Om $M\neq 0 $ så är $f(z) \neq 0$ och likheten ovan kan skrivas
+	\begin{equation*}
+		\conj{f(z)} = \frac{M^2}{f(z)},
+	\end{equation*}
+	som blir en holomorf funktion, eftersom $f$ var holomorf. Både $f$ och $\conj{f}$ måste alltså uppfylla Cauchy-Riemanns ekvationer, och sätter man in
+	\begin{equation*}
+		f(z) = u(x, y) + iv(x, y) \quad \text{och} \quad \conj{f(z)} = u(x, y) - iv(x, y)
+	\end{equation*}
+	får man direkt att $u$ och $v$ är konstanta, varpå satsen är bevisad.
+\end{proof}
+
 \begin{lemma}[Schwarz lemma]
 
 \end{lemma}
