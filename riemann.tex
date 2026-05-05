@@ -15,11 +15,11 @@
 
 
 \begin{theorem}\label{thm:öppna_områden_bevaras}
-	Öppna områden, samt enkel sammanhängande områden behvaras under en holomorf avbildning.
+	Öppna områden, samt enkelt sammanhängande områden bevaras under en holomorf avbildning.
 \end{theorem}
 
 \begin{theorem}[Maximumprincipen]
-	Låt $\Omega$ vara ett öppet slutet område. Antag att $f \in \H(\Omega)$ och kontinuerlig på $\overline{\Omega}$. Om $f$ inte är konstant så antar $f$ max på $\partial \Omega$.
+    Låt $\Omega$ vara ett öppet sammanhängande område. Antag att $f \in \H(\Omega)$ och kontinuerlig på $\overline{\Omega}$. Om $f$ inte är konstant så antar $\abs{f}$ max på $\partial \Omega$.
 \end{theorem}
 \begin{proof}
 	Vi visar det kontrapositiva påståendet. Antag att $z_0 \in \Omega$ och att $\abs{f(z_0)}$ är ett lokalt maximum av $\abs{f}$, det vill säga att
@@ -194,10 +194,9 @@
 	\begin{equation*}
 		\Psi'(z_0) = \Psi_1'(z_0)F'(\Psi_1(z_0))  = \Psi_1'(z_0)F'(0).
 	\end{equation*}
-
 	Vi ser att $F$ uppfyller kraven för Schwarz lemma vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
-	Vi definierar nu
+	 Vi ser att det för varje funktion i $\Sigma$ vars bild av $\Omega$ inte är hela $U$ existerar en funktion med större derivata i någon punkt $z_0$. Det kontraspositiva påståendet till detta ger oss att om vi finner en funktion som har den största derivatan i punkten $z_0$ så kommer denna funktionens bild av $\Omega$ att vara hela $U$. Vi definierar
 	\begin{equation*}
 		\eta = \sup \{ |\Psi'(z_0)| : \Psi \in \Sigma \}.
 	\end{equation*}
