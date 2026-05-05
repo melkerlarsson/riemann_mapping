@@ -14,7 +14,7 @@
 \end{definition}
 
 
-\begin{theorem}\label{th:öppna_områden_bevaras}
+\begin{theorem}\label{thm:öppna_områden_bevaras}
 	Öppna områden, samt enkel sammanhängande områden behvaras under en holomorf avbildning.
 \end{theorem}
 
@@ -125,7 +125,7 @@
 
 
 
-	Eftersom $\phi$ är holomorf är det enligt sats \ref{th:öppna_områden_bevaras} en avbildning som bevarar öppna områden. Det innebär att det går att hitta en cirkelskiva $D(a, r) \in \phi(\Omega)$, med  $0< r < \vert a\vert$, se figur \ref{fig:phi(omega)-disk}. Denna begränsning på $r$ är inte någon inskränkning eftersom om vi skulle ha en cirkel med större radie än $\vert a\vert$ så gäller det även att en mindre cirkel också ligger i $\phi(\Omega)$. Vi kan även konstatera att cirkelskivan $D(-a, r)$ \emph{inte} ligger i $\phi(\Omega)$, till följd av \eqref{eq:phi_symmetry}. Bilda nu funktionen
+	Eftersom $\phi$ är holomorf är det enligt sats \ref{thm:öppna_områden_bevaras} en avbildning som bevarar öppna områden. Det innebär att det går att hitta en cirkelskiva $D(a, r) \in \phi(\Omega)$, med  $0< r < \vert a\vert$, se figur \ref{fig:phi(omega)-disk}. Denna begränsning på $r$ är inte någon inskränkning eftersom om vi skulle ha en cirkel med större radie än $\vert a\vert$ så gäller det även att en mindre cirkel också ligger i $\phi(\Omega)$. Vi kan även konstatera att cirkelskivan $D(-a, r)$ \emph{inte} ligger i $\phi(\Omega)$, till följd av \eqref{eq:phi_symmetry}. Bilda nu funktionen
 	\begin{equation}
 		\Psi(z) = \frac{r}{\phi(z) +a}.
 	\end{equation}
@@ -197,5 +197,26 @@
 
 	Vi ser att $F$ uppfyller kraven för Schwarz lemma vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
+    Vi definierar nu
+    \begin{equation*}
+        \eta = \sup \{ |\Psi'(z_0)| : \Psi \in \Sigma \}.
+    \end{equation*}
+    Eftersom $\Sigma$ inte är tom, och funktionerna däri är injektiva, följer att $\eta > 0$. Vi vet att $\Sigma$ är likformigt begränsad då $\abs{\Psi(z)} < 1$ då $z \in \Omega$. Därutöver ser vi att $\abs{\Psi'}$ är kontinuerlig på kompakta delmängder till $\Omega$, varav det följer från Weierstra\ss~extremvärdessats att $\abs{\Psi'}$ är begränsad. Därmed existerar $\eta$ enligt supremumaxiomet.
 
+    Det existerar enligt supremumaxiomet en följd $\{\abs{\Psi'_n(z_0)}\}$ som konvergerar till $\eta$. Eftersom $\Sigma$ är likformigt begränsad följder det att det är en normalfamilj. Ur följden $\Psi_n$ kan vi därför ta en delföljd $\Psi_k$ så att $\Psi_k \xrightarrow{u} \zeta$ för någon funktion $\zeta$. 
+
+    Det följer av att $\Psi_k \xrightarrow{u} \zeta$ och att $\Psi_k$ är holomorfa att $\Psi'_k \xrightarrow{u} \zeta'$. Följden $\{\abs{\Psi'_k(z_0)}\}$, vilken konvergerar till $\abs{\zeta'(z_0)}$, är därför en delföljd till $\{\abs{\Psi'_n(z_0)}\}$ vilken konvergerar till $\eta$. Det följer att $\abs{\zeta'(z_0)}=\eta$. 
+
+    Låt oss nu visa att $\zeta$ ligger i $\Sigma$ och att den därmed lägger $\Omega$ på $U$. Eftersom $\zeta$ har nollskild derivata i $z_0$ följer det att den inte är konstant. Vi kan då med sats (sats som ska skrivas i framtiden) säga att $\zeta$ är injektiv. Det återstår nu endast att se att den lägger $\Omega$ på $U$. Per definition gäller det att $\Psi_k(\Omega) \subset U$. Antag att det för något $z$ skulle gälla att $\zeta(z) \notin \overline{U}$. Vi kan då inte finna något $z'$ så att
+    \begin{equation*}
+    \abs{\Psi(z') - \zeta(z)} < \epsilon
+    \end{equation*}
+    då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
 \end{proof}
+
+\section{Frågor till Mikael Sundqvist Persson}
+\begin{itemize}
+    \item Vilken form av Schwarz lemma är det som ska användas? Funktionen $F$ uppfyller icke att $F(0)=0$.
+    \item Hur visade vi att $\phi_{\alpha}: U \to U$?  (vi glum)
+    \item Hur visar man att absolutbeloppet av en holomorf funktion är kontinuerlig?
+\end{itemize}
