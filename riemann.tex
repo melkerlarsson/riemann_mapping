@@ -43,8 +43,8 @@
 	\end{align*}
 	Eftersom integranden är större än 0 enligt antagandet, och det är en kontinuerlig funktion? så måste
 	\begin{align*}
-        \abs{f(z_0)} - \abs{f(z_0 + re^{i\theta})} &= 0 \\
-        \iff \abs{f(z_0)} &= \abs{f(z)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \Omega.
+		\abs{f(z_0)} - \abs{f(z_0 + re^{i\theta})} & = 0                                                                                  \\
+		\iff \abs{f(z_0)}                          & = \abs{f(z)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \Omega.
 	\end{align*}
 	% Det följer ur Identitessatsen för holomorfa funktioner att
 	% \begin{equation*}
@@ -169,7 +169,7 @@
 	\end{figure}
 
 
-	Eftersom $a \notin \Psi(\Omega)$ har $\phi_{\alpha} \circ \Psi$ inget nollställe i $\Omega$ ty
+	Eftersom $\alpha \notin \Psi(\Omega)$ har $\phi_{\alpha} \circ \Psi$ inget nollställe i $\Omega$ ty
 	\begin{equation*}
 		\phi_{\alpha}(z) = 0 \iff z = \alpha.
 	\end{equation*}
@@ -181,12 +181,12 @@
 	\begin{equation} \label{eq:psi-tilde}
 		\tilde{\Psi} = \phi_{\beta} \circ g,
 	\end{equation}
-	där $\beta = g(z_0)$ så kommer $\tilde{\Psi} \in \Sigma$. Låter vi funktionen $s$ vara kvadratfunktionen, det vill säga $s(w) = w^2$ så kommer det enligt \eqref{eq:g^2} och \eqref{eq:psi-tilde} gälla att
+	för något $\beta$ så kommer $\tilde{\Psi} \in \Sigma$. Låter vi funktionen $s$ vara kvadratfunktionen, det vill säga $s(w) = w^2$ så kommer det enligt \eqref{eq:g^2} och \eqref{eq:psi-tilde} gälla att
 	\begin{equation}\label{eq:relation_psi_psi-tilde}
 		\Psi = \phi_{-\alpha} \circ s\circ g =\phi_{-\alpha} \circ s \circ \phi_{-\beta} \circ \tilde{\Psi} = F \circ \tilde{\Psi},
 	\end{equation}
 	där $F =\phi_{-\alpha} \circ s \circ \phi_{-\beta}$.
-	Eftersom vi valde $\beta = g(z_0)$ är
+	Om vi väljer $\beta = g(z_0)$ är
 	\begin{equation*}
 		\tilde{\Psi}(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}z_0} = 0.
 	\end{equation*}
