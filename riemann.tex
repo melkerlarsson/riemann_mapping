@@ -42,13 +42,14 @@
 		\iff \int_0^{2\pi}{\abs{f(z_0)}-\abs{f(z_0 + re^{i\theta})} d\theta} & = 0.
 	\end{align*}
 	Eftersom integranden är större än 0 enligt antagandet, och det är en kontinuerlig funktion? så måste
-	\begin{equation*}
-		\abs{f(z_0)} - \abs{f(z_0 + re^{i\theta})} = 0 \iff \abs{f(z_0)} = \abs{f(z)} \quad \forall z \in \Omega.
-	\end{equation*}
-	Det följer ur Identitessatsen för holomorfa funktioner att
-	\begin{equation*}
-		\abs{f(z)} = \abs{f(z_0)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \mathbb{C}.
-	\end{equation*}
+	\begin{align*}
+        \abs{f(z_0)} - \abs{f(z_0 + re^{i\theta})} &= 0 \\
+        \iff \abs{f(z_0)} &= \abs{f(z)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \Omega.
+	\end{align*}
+	% Det följer ur Identitessatsen för holomorfa funktioner att
+	% \begin{equation*}
+	% 	\abs{f(z)} = \abs{f(z_0)} = \text{konstant} \overset{\text{def}}{=} M \quad \forall z \in \mathbb{C}.
+	% \end{equation*}
 	Vi visar nu att även $f(z)$ måste vara konstant. Från ekvationen ovan kan vi skriva
 	\begin{equation*}
 		\abs{f(z)}^2 = f(z)\conj{f(z)} = M^2.
