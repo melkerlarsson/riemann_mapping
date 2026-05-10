@@ -1,5 +1,5 @@
 \begin{definition}[Konform avbildning]
-
+    
 \end{definition}
 
 \begin{example}
@@ -19,7 +19,7 @@
 \end{theorem}
 
 \begin{theorem}[Maximumprincipen]
-    \label{thm:maximumprincipen}
+	\label{thm:maximumprincipen}
 	Låt $\Omega$ vara ett öppet sammanhängande område. Antag att $f \in \H(\Omega)$ och kontinuerlig på $\overline{\Omega}$. Om $f$ inte är konstant så antar $\abs{f}$ max på $\partial \Omega$.
 \end{theorem}
 \begin{proof}
@@ -66,47 +66,43 @@
 \end{proof}
 
 \begin{lemma}[Schwarz lemma]
-    Antag att $f \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
-    \begin{align*}
-        \abs{f(z)} &\le \abs{z} \quad z \in U \text{, och} \\
-        \abs{f'(0)} &\le 1.
-    \end{align*}
+	Antag att $f \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
+	\begin{align*}
+		\abs{f(z)}  & \le \abs{z} \quad z \in U \text{, och} \\
+		\abs{f'(0)} & \le 1.
+	\end{align*}
 \end{lemma}
 
 \begin{proof}
-    Bilda funktionen $f_r(z) = f(rz)$ för något $0 < r 1$. Vi ser sedan till funktionen $f_r(z)/z$, vilken (eftersom $f_r(0)=0$) har en hävbar singularitet i $z=0$. Vi får därför att $f_r(z)/z \in \H(U) \cap C(\overline{U}$). Vi uttnyttjar nu maximumprincipen \ref{thm:maximumprincipen} för att säga
-    \begin{equation*}
-        \abs{f_r(z)/z} \le \sup_{\abs{\zeta} = 1} \abs{f_r(\zeta)/\zeta} \le 1, \quad z \in U.
-    \end{equation*}
-    Genom multiplikation av $\abs{z}$ erhålles $\abs{f_r(z)} \le \abs{z}$. Låter vi $r$ gå mot 1 ser vi att $\abs{f(z)} \le \abs{z}$. Vi bildar nu funktionen $g(z) := f(z)/z$ och utvärderar denna i den hävbara singulariteten $z=0$ för att få
-    \begin{equation*}
-        g(0) = \lim_{z \to 0} \frac{f(z) - f(0)}{z - 0} = f'(0).
-    \end{equation*}
-    Från att $\abs{g(z)} \le 1$ (speciellt för $z=0$) följer att $f'(0) \le 1$.
+	Bilda funktionen $f_r(z) = f(rz)$ för något $0 < r < 1$. Vi ser sedan till funktionen $f_r(z)/z$, vilken (eftersom $f_r(0)=0$) har en hävbar singularitet i $z=0$. Vi får därför att $f_r(z)/z \in \H(U) \cap C(\overline{U}$). Vi uttnyttjar nu maximumprincipen \ref{thm:maximumprincipen} för att säga
+	\begin{equation*}
+		\abs{f_r(z)/z} \le \sup_{\abs{\zeta} = 1} \abs{f_r(\zeta)/\zeta} \le 1, \quad z \in U.
+	\end{equation*}
+	Genom multiplikation av $\abs{z}$ erhålles $\abs{f_r(z)} \le \abs{z}$. Låter vi $r$ gå mot 1 ser vi att $\abs{f(z)} \le \abs{z}$. Vi bildar nu funktionen $g(z) := f(z)/z$ och utvärderar denna i den hävbara singulariteten $z=0$ för att få
+	\begin{equation*}
+		g(0) = \lim_{z \to 0} \frac{f(z) - f(0)}{z - 0} = f'(0).
+	\end{equation*}
+	Från att $\abs{g(z)} \le 1$ (speciellt för $z=0$) följer att $f'(0) \le 1$.
 \end{proof}
 
-\begin{lemma}
-    Funktionen $\phi_\alpha = \dfrac{z - \alpha}{1 - \conj{\alpha}z}$, där $\abs{\alpha} < 1$, avbildar den öppna enhetsdisken på sig själv.
+\begin{lemma}\label{lem:phi_bijec}
+	Funktionen $\phi_\alpha = \dfrac{z - \alpha}{1 - \conj{\alpha}z}$, där $\abs{\alpha} < 1$, avbildar den öppna enhetsdisken på sig själv.
 \end{lemma}
 
 \begin{proof}
-    Vi börjar med att visa att $\phi_\alpha$ avbildar randen till enhetsdisken på sig själv. Då $z = e^{i \theta}$ ser vi att
-    \begin{equation*}
-        \abs{\phi_\alpha(e^{i \theta})} = \abs{\frac{e^{i \theta} - \alpha}{1 - \conj{\alpha}e^{i \theta}}} = \frac{\abs{e^{i \theta}}\abs{1 - \alpha e^{-i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}}
-    \end{equation*}
-    Genom att ta konjugatet av täljaren får vi
-    \begin{equation*}
-        \abs{\phi_\alpha(e^{i \theta})} = \frac{\abs{1 - \conj{\alpha} e^{i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}} = 1
-    \end{equation*}
-    Randen avbildas på sig själv. Vi får från maximumprincipen \ref{thm:maximumprincipen} att maximum för $\abs{\phi_\alpha}$ på $U$ kommer att antas på randen till $U$. Alltså
-    \begin{equation*}
-        \abs{\phi_\alpha(z)} \le 1 \quad z \in U.
-    \end{equation*}
-    Lemmat följer från detta tillsammans med att funktionen bevarar att enhetsdisken är öppen, enkel och sammanhängande.
-\end{proof}
-
-\begin{proof}
-    Tag punkt på randen. Betrakta absolutbelopp och bryt ut punkten. Konjugera täljaren. Se att absoluten är 1. Det har hamnat på randen. Absolutbelopp av en holomorf funktion antar sitt max på randen. Alltså måste inre punkter ha hamnet i det inre till enhetsdisken. 
+	Vi börjar med att visa att $\phi_\alpha$ avbildar randen till enhetsdisken på sig själv. Då $z = e^{i \theta}$ ser vi att
+	\begin{equation*}
+		\abs{\phi_\alpha(e^{i \theta})} = \abs{\frac{e^{i \theta} - \alpha}{1 - \conj{\alpha}e^{i \theta}}} = \frac{\abs{e^{i \theta}}\abs{1 - \alpha e^{-i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}}
+	\end{equation*}
+	Genom att ta konjugatet av täljaren (vilket inte ändrar dess absolutbelopp) får vi
+	\begin{equation*}
+		\abs{\phi_\alpha(e^{i \theta})} = \frac{\abs{1 - \conj{\alpha} e^{i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}} = 1
+	\end{equation*}
+	Randen avbildas på sig själv. Vi får från maximumprincipen \ref{thm:maximumprincipen} att maximum för $\abs{\phi_\alpha}$ på $U$ kommer att antas på randen till $U$. Alltså
+	\begin{equation*}
+		\abs{\phi_\alpha(z)} \le 1 \quad z \in U.
+	\end{equation*}
+	Lemmat följer från detta tillsammans med att funktionen bevarar att enhetsdisken är öppen, enkel och sammanhängande.
 \end{proof}
 
 \begin{theorem}[Riemanns avbildningssats]
@@ -192,7 +188,7 @@
 	\begin{equation*}
 		\phi_{\alpha} \circ \phi_{-\alpha} (z) = \phi_{\alpha} \left(\frac{z+\alpha}{1+\conj{\alpha}z}\right) = \frac{\frac{z+\alpha}{1+\conj{\alpha}z} - \alpha}{1 - \conj{a}\frac{z+\alpha}{1+\conj{\alpha}z}} = \frac{z+\alpha - \alpha - \alpha\conj{\alpha}z}{1+\conj{\alpha}z - \conj{\alpha}z - \alpha\conj{\alpha}} = \frac{z(1-\alpha\conj{\alpha})}{1 - \alpha\conj{\alpha}} = z.
 	\end{equation*}
-	Det gäller också att $\phi_{\alpha}$ är bijektiv mellan $U$ och $U$.
+	Det gäller också att $\phi_{\alpha}$ är bijektiv mellan $U$ och $U$, enligt lemma \ref{lem:phi_bijec}.
 
 	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$, se figur \ref{fig:psi_omega}. Då gäller att sammansättningen $\phi_{\alpha} \circ \Psi \in \Sigma$ eftersom funktionen är holomorf och injektiv på $\Omega$ samt att $\Psi$ mappar $\Omega$ inuti $U$ och $\phi_{\alpha}$ mappar $U$ på $U$.
 
