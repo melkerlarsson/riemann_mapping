@@ -1,17 +1,4 @@
-\begin{definition}[Konform avbildning]
-    
-\end{definition}
 
-\begin{example}
-	Exempel på konform avbildning.
-\end{example}
-
-
-
-
-\begin{definition}[Konform ekvivalens]
-
-\end{definition}
 
 
 \begin{theorem}\label{thm:öppna_områden_bevaras}
@@ -105,16 +92,13 @@
 	Lemmat följer från detta tillsammans med att funktionen bevarar att enhetsdisken är öppen, enkel och sammanhängande.
 \end{proof}
 
-\begin{theorem}[Riemanns avbildningssats]
-	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ är konformt ekvivalent med den öppna enhetsdisken $U$.
-\end{theorem}
 
+Vi kan nu bevisa Riemanns avbildningssats.
 \begin{proof}
 	Låt $\Omega \subset \mathbb{C}$ vara ett enkelt sammanhängande område och $w_0$ en punkt utanför $\Omega$. Bilda mängden
 	\begin{equation*}
-		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi \text{ lägger } \Omega \text{ i } U\}.
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi(\Omega) \subseteq U\}.
 	\end{equation*}
-	Med att $\Psi$ lägger $\Omega$ i $U$ menas att $\Psi(z) \in U$ för alla $z \in \Omega$.
 
 	Vi börjar med att visa att mängden $\Sigma$ inte är tom -- det vill säga att det existerar någon funktion $\Psi$ som uppfyller dessa krav. Betrakta en funktion $\phi$ som uppfyller
 	\begin{equation} \label{eq:phi^2}
@@ -197,7 +181,7 @@
 		\begin{center}
 			\includegraphics[width=0.95\textwidth]{figures/psi_omega.png}
 		\end{center}
-		\caption{}\label{fig:psi_omega}
+		\caption{Området $\Omega$ och bilden $\Psi(\Omega)$.}\label{fig:psi_omega}
 	\end{figure}
 
 
