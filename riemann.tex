@@ -1,6 +1,4 @@
 
-
-
 \begin{theorem}\label{thm:öppna_områden_bevaras}
 	Öppna områden, samt enkelt sammanhängande områden bevaras under en holomorf avbildning.
 \end{theorem}
@@ -52,26 +50,6 @@
 	får man direkt att $u$ och $v$ är konstanta. Därför är $f(z)$ konstant på $D$ och eftersom cirkelskivan innehåller hopningspunkter följer av Identitetsatsen för holomorfa funktioner att $f(z)$ är konstant i $\Omega$.
 \end{proof}
 
-\begin{lemma}[Schwarz lemma]
-	Antag att $f \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
-	\begin{align*}
-		\abs{f(z)}  & \le \abs{z} \quad z \in U \text{, och} \\
-		\abs{f'(0)} & \le 1.
-	\end{align*}
-\end{lemma}
-
-\begin{proof}
-	Bilda funktionen $f_r(z) = f(rz)$ för något $0 < r < 1$. Vi ser sedan till funktionen $f_r(z)/z$, vilken (eftersom $f_r(0)=0$) har en hävbar singularitet i $z=0$. Vi får därför att $f_r(z)/z \in \H(U) \cap C(\overline{U}$). Vi uttnyttjar nu maximumprincipen \ref{thm:maximumprincipen} för att säga
-	\begin{equation*}
-		\abs{f_r(z)/z} \le \sup_{\abs{\zeta} = 1} \abs{f_r(\zeta)/\zeta} \le 1, \quad z \in U.
-	\end{equation*}
-	Genom multiplikation av $\abs{z}$ erhålles $\abs{f_r(z)} \le \abs{z}$. Låter vi $r$ gå mot 1 ser vi att $\abs{f(z)} \le \abs{z}$. Vi bildar nu funktionen $g(z) := f(z)/z$ och utvärderar denna i den hävbara singulariteten $z=0$ för att få
-	\begin{equation*}
-		g(0) = \lim_{z \to 0} \frac{f(z) - f(0)}{z - 0} = f'(0).
-	\end{equation*}
-	Från att $\abs{g(z)} \le 1$ (speciellt för $z=0$) följer att $f'(0) \le 1$.
-\end{proof}
-
 \begin{lemma}\label{lem:phi_bijec}
 	Funktionen $\phi_\alpha = \dfrac{z - \alpha}{1 - \conj{\alpha}z}$, där $\abs{\alpha} < 1$, avbildar den öppna enhetsdisken på sig själv.
 \end{lemma}
@@ -92,6 +70,63 @@
 	Lemmat följer från detta tillsammans med att funktionen bevarar att enhetsdisken är öppen, enkel och sammanhängande.
 \end{proof}
 
+\begin{lemma}[Schwarz lemma]
+	Antag att $f \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
+	\begin{align*}
+		\abs{f(z)}  & \le \abs{z} \quad z \in U \text{, och} \\
+		\abs{f'(0)} & \le 1.
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Bilda funktionen $f_r(z) = f(rz)$ för något $0 < r < 1$. Vi ser sedan till funktionen $f_r(z)/z$, vilken (eftersom $f_r(0)=0$) har en hävbar singularitet i $z=0$. Vi får därför att $f_r(z)/z \in \H(U) \cap C(\overline{U}$). Vi uttnyttjar nu maximumprincipen \ref{thm:maximumprincipen} för att säga
+	\begin{equation*}
+		\abs{f_r(z)/z} \le \sup_{\abs{\zeta} = 1} \abs{f_r(\zeta)/\zeta} \le 1, \quad z \in U.
+	\end{equation*}
+	Genom multiplikation av $\abs{z}$ erhålles $\abs{f_r(z)} \le \abs{z}$. Låter vi $r$ gå mot 1 ser vi att $\abs{f(z)} \le \abs{z}$. Vi bildar nu funktionen $g(z) := f(z)/z$ och utvärderar denna i den hävbara singulariteten $z=0$ för att få
+	\begin{equation*}
+		g(0) = \lim_{z \to 0} \frac{f(z) - f(0)}{z - 0} = f'(0).
+	\end{equation*}
+	Från att $\abs{g(z)} \le 1$ (speciellt för $z=0$) följer att $f'(0) \le 1$.
+\end{proof}
+
+\begin{corollarium} \label{cor:schwarz}
+    Låt $u, v$ vara komplexa tal i enhetdisken och $f$ vara en icke injektiv holomorf funktion som uppfyller $F(U) \subseteq U$. Antag dessutom att $f(u) = v$. Det gäller då att
+    \begin{equation*}
+        \abs{f'(u)} < \frac{1-\abs{v}^2}{1-\abs{u}^2}.
+    \end{equation*}
+\end{corollarium}
+
+\begin{proof}
+    Bilda funktionen
+    \begin{equation}
+        \label{eq:gphivfphiu}
+        g = \phi_v \circ f \circ \phi_{-u}, 
+    \end{equation}
+    där $\phi$ definieras som i lemma \ref{lem:phi_bijec}. Det följer från att samtliga funktioner är holomorfa att även sammansättningen $g$ är holomorf. Dessutom gäller det att $g(U) \subseteq U$ samt att
+    \begin{equation*}
+        g(0) = \phi_v \circ f\left(u\right) = \phi_v(v) = 0.
+    \end{equation*}
+    Vi ser nu att vi kan nyttja Schwarz lemma på funktionen $g$ och får då att $\abs{g'(0)} \le 1$. Låt oss även få fram ett uttryck för $g'(0)$ enligt dess definition \eqref{eq:gphivfphiu}. Med kedjreregeln ser vi att
+    \begin{align*}
+        g'(0) &=  \phi'_v \circ f \circ \phi_{-u}(0) \cdot f' \circ \phi_{-u}(0) \cdot \phi'_{-u}(0) \\
+              &= \phi'_v(v)f'(u)\phi'_{-u}(0).
+    \end{align*}
+    Då vi vill få fram ett uttryck för $\abs{f'(u)}$ undersöker vi nu en övre begränsning med hjälp av detta. Vi löser för $f'(u)$ i det föregående uttrycket och använder begränsningen på derivatan av $g$ vi fick med Schwarz lemma för att få
+    \begin{equation*}
+        \abs{f'(u)} = \abs{\frac{g'(0)}{\phi'_v(v)\phi'_{-u}(0)}} \le \abs{\frac{1 - \abs{v}^2}{1 - \abs{u}^2}} = \frac{1 - \abs{v}^2}{1 - \abs{u}^2},
+    \end{equation*}
+    där den sista likheten kommer från att både $u$ och $v$ ligger i enhetsdisken. Likheten fås ovan om $\abs{g'(0)}=1$ vilket enligt Schwarz lemma innebär att $g(z) = \lambda z$, med $\abs{\lambda} = 1$. Från \eqref{eq:gphivfphiu} fås att
+    \begin{equation}
+        f(z) = \phi_{-v}(g(\phi_u(z))),
+    \end{equation}
+vilket är en injektiv funktion. Alltså kan vi säga att om $f$ inte är injektiv så måste 
+\begin{equation*}
+\abs{f'(u)} < \frac{1 - \abs{v}^2}{1 - \abs{u}^2}.
+\end{equation*}
+\end{proof}
+
+\section{Bevis av Riemanns avbildningssats}
 
 Vi kan nu bevisa Riemanns avbildningssats.
 \begin{proof}
@@ -210,7 +245,7 @@ Vi kan nu bevisa Riemanns avbildningssats.
 	\begin{equation*}
 		\Psi'(z_0) = \Psi_1'(z_0)F'(\Psi_1(z_0))  = \Psi_1'(z_0)F'(0).
 	\end{equation*}
-	Vi ser att $F$ uppfyller kraven för Schwarz lemma vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
+    Eftersom $F$ inte är injektiv (innehåller kvadratfunktionen) ser vi att kraven för korollarium \ref{cor:schwarz} är uppfyllda, med $u = 0$ och $v=F(0)$, vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
 	Vi ser att det för varje funktion i $\Sigma$ vars bild av $\Omega$ inte är hela $U$ existerar en funktion med större derivata i någon punkt $z_0$. Det kontraspositiva påståendet till detta ger oss att om vi finner en funktion som har den största derivatan i punkten $z_0$ så kommer denna funktionens bild av $\Omega$ att vara hela $U$. Vi definierar
 	\begin{equation*}
@@ -229,8 +264,3 @@ Vi kan nu bevisa Riemanns avbildningssats.
 	då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
 \end{proof}
 
-\section{Frågor till Mikael Persson Sundqvist}
-\begin{itemize}
-	\item Vilken form av Schwarz lemma är det som ska användas? Funktionen $F$ uppfyller icke att $F(0)=0$.
-	\item Krävs injektivitet för att holomorfa funktioner ska bevara öppna, sammanhängande områden.
-\end{itemize}

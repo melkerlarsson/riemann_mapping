@@ -56,18 +56,26 @@
 \maketitle
 
 \section{Introduktion}
+När man löser ett stationärt värmelösningsproblem på något enkelt sammanhängande område i planet kan vanliga speglingsmetoder ofta misslyckas om inte geometrin för området är speciellt enkelt. Det visar sig att det finns en speciell typ av avbildning, en \emph{konform} sådan, som bevarar den stationära värmeledningsekvationen och därmed kan användas för att överföra problemet från området till ett enklare sådant (exempelvis enhetsdisken) där lösningen är känd, varefter lösningen för det ursprungliga problemet kan härledas. Vi kommer översiktligt att diskutera karakteriseringar av konforma avbildningar för att sedan ta oss an frågan: till vilka enkla sammanhängande områden existerar det en sådan konform avbildning till enhetsdisken? Riemann menar att det är alla. 
+
+\section{Konforma avbildningar}
+
 En konform avbildning är sådan att den lokalt bevarar vinklar. En formell definition är som följer.
 \begin{definition}[Konform avbildning]
 	Antag att $\Omega \subset \mathbb{C}$ och att två kurvor $\gamma_1$ och $\gamma_2$ skär varandra med en vinkel $\alpha$ i punkten $z_0 \in \Omega$. Om den holomorfa funktionen $f$ har egenskapen att vinkeln mellan kurvorna $f(\gamma_1)$ och $f(\gamma_2)$ också är $\alpha$ så säges $f$ vara konform i punkten $z_0$. Om detta gäller för alla punkter $z \in \Omega$ och $f$ är bijektiv, så kallas $f$ för en konform avbildning.
 \end{definition}
 
+Som svar på hur man på något rimligt vis ska kunna inse om en avbildning är konform har vi följande sats. 
+
 \begin{theorem}
     En holomorf funktion $f$ är konform i en punkt $z_0$ om och endast om $f'(z_0) \neq 0$.
 \end{theorem}
 
+Denna satsen kommer inte att bevisas, då fokus kommer att ligga på att bevisa Riemanns avbildningssats. Från satsen ser vi att en holomorf funktion $f$ som har nollskild derivata i något område $\Omega$ definierar en konform avbildning $\Omega \mapsto f(\Omega)$. Låt oss nu presentera en viktig familj av konforma avbildningar, som är av speciellt intresse då linjer och cirklar avbildas på andra linjer och cirklar (men inte nödvändigtvis linjer på linjer eller cirklar på cirklar). 
+
 \input{konform_ex}
 
-Vi presenterar nu Riemanns avbildningssats.
+Som antyddes i introduktionen menar Riemann att det existerar en konform avbildning mellan samtliga enkla sammanhängande områden och enhetscirkeln. Detta presenteras i följande sats, vars bevis kommer att studeras 
 \begin{theorem}[Riemanns avbildningssats]
 	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ kan med en holomorf funktion avbildas konformt till den öppna enhetsdisken $U$.
 \end{theorem}
@@ -78,7 +86,7 @@ Innan vi kan genomföra beviset av satsen, så kommer vi behöva teori om så ka
 \section{Normalfamiljer}
 \input{normalfamilj}
 
-\section{Riemanns avbildningssats}
+\section{Några ytterligare lemman}
 \input{riemann}
 
 \end{document}
