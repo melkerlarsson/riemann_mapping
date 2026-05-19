@@ -1,7 +1,32 @@
 
 \begin{theorem}\label{thm:öppna_områden_bevaras}
-	Öppna områden, samt enkelt sammanhängande områden bevaras under en holomorf avbildning.
+	Öppna sammanhängande områden bevaras under en holomorf avbildning.
 \end{theorem}
+
+\begin{lemma}\label{lem:existens_logaritm}
+	Antag att $f$ är holomorf på ett öppet, enkelt sammanhängande område $\Omega$, och att $0 \notin f(\Omega)$. Då existerar det en logaritmfunktion av $f$ på $\Omega$.
+\end{lemma}
+
+\begin{proof}
+	Eftersom $f$ är holomorf och nollskild är funktionen $f'/f$ också holomorf och det existerar en primitiv $g$ som uppfyller
+	\begin{equation} \label{eq:g'}
+		g' = \frac{f'}{f},
+	\end{equation}
+	eftersom $\Omega$ är enkelt sammanhängande. Om vi bildar funktionen $f \exp(-g)$, som är holomorf, och deriverar får vi
+	\begin{equation*}
+		(f \exp(-g))' = f' \exp(-g) - fg'\exp(-g) = (f'-fg')\exp(-g) = 0,
+	\end{equation*}
+	där sista likheten fås ur \eqref{eq:g'}. Alltså är
+	\begin{equation*}
+		f \exp(-g) = \text{konstant} =: C.
+	\end{equation*}
+	Detta kan skrivas som
+	\begin{equation*}
+		f = C \exp(g),
+	\end{equation*}
+	vilket innebär att $g$ är en logaritm till $f$.
+
+\end{proof}
 
 \begin{theorem}[Maximumprincipen]
 	\label{thm:maximumprincipen}
@@ -91,42 +116,42 @@
 \end{proof}
 
 \begin{corollarium} \label{cor:schwarz}
-    Låt $u, v$ vara komplexa tal i enhetdisken och $f$ vara en icke injektiv holomorf funktion som uppfyller $F(U) \subseteq U$. Antag dessutom att $f(u) = v$. Det gäller då att
-    \begin{equation*}
-        \abs{f'(u)} < \frac{1-\abs{v}^2}{1-\abs{u}^2}.
-    \end{equation*}
+	Låt $u, v$ vara komplexa tal i enhetdisken och $f$ vara en icke injektiv holomorf funktion som uppfyller $f(U) \subseteq U$. Antag dessutom att $f(u) = v$. Det gäller då att
+	\begin{equation*}
+		\abs{f'(u)} < \frac{1-\abs{v}^2}{1-\abs{u}^2}.
+	\end{equation*}
 \end{corollarium}
 
 \begin{proof}
-    Bilda funktionen
-    \begin{equation}
-        \label{eq:gphivfphiu}
-        g = \phi_v \circ f \circ \phi_{-u}, 
-    \end{equation}
-    där $\phi$ definieras som i lemma \ref{lem:phi_bijec}. Det följer från att samtliga funktioner är holomorfa att även sammansättningen $g$ är holomorf. Dessutom gäller det att $g(U) \subseteq U$ samt att
-    \begin{equation*}
-        g(0) = \phi_v \circ f\left(u\right) = \phi_v(v) = 0.
-    \end{equation*}
-    Vi ser nu att vi kan nyttja Schwarz lemma på funktionen $g$ och får då att $\abs{g'(0)} \le 1$. Låt oss även få fram ett uttryck för $g'(0)$ enligt dess definition \eqref{eq:gphivfphiu}. Med kedjreregeln ser vi att
-    \begin{align*}
-        g'(0) &=  \phi'_v \circ f \circ \phi_{-u}(0) \cdot f' \circ \phi_{-u}(0) \cdot \phi'_{-u}(0) \\
-              &= \phi'_v(v)f'(u)\phi'_{-u}(0).
-    \end{align*}
-    Då vi vill få fram ett uttryck för $\abs{f'(u)}$ undersöker vi nu en övre begränsning med hjälp av detta. Vi löser för $f'(u)$ i det föregående uttrycket och använder begränsningen på derivatan av $g$ vi fick med Schwarz lemma för att få
-    \begin{equation*}
-        \abs{f'(u)} = \abs{\frac{g'(0)}{\phi'_v(v)\phi'_{-u}(0)}} \le \abs{\frac{1 - \abs{v}^2}{1 - \abs{u}^2}} = \frac{1 - \abs{v}^2}{1 - \abs{u}^2},
-    \end{equation*}
-    där den sista likheten kommer från att både $u$ och $v$ ligger i enhetsdisken. Likheten fås ovan om $\abs{g'(0)}=1$ vilket enligt Schwarz lemma innebär att $g(z) = \lambda z$, med $\abs{\lambda} = 1$. Från \eqref{eq:gphivfphiu} fås att
-    \begin{equation}
-        f(z) = \phi_{-v}(g(\phi_u(z))),
-    \end{equation}
-vilket är en injektiv funktion. Alltså kan vi säga att om $f$ inte är injektiv så måste 
-\begin{equation*}
-\abs{f'(u)} < \frac{1 - \abs{v}^2}{1 - \abs{u}^2}.
-\end{equation*}
+	Bilda funktionen
+	\begin{equation}
+		\label{eq:gphivfphiu}
+		g = \phi_v \circ f \circ \phi_{-u},
+	\end{equation}
+	där $\phi$ definieras som i lemma \ref{lem:phi_bijec}. Det följer från att samtliga funktioner är holomorfa att även sammansättningen $g$ är holomorf. Dessutom gäller det att $g(U) \subseteq U$ samt att
+	\begin{equation*}
+		g(0) = \phi_v \circ f\left(u\right) = \phi_v(v) = 0.
+	\end{equation*}
+	Vi ser nu att vi kan nyttja Schwarz lemma på funktionen $g$ och får då att $\abs{g'(0)} \le 1$. Låt oss även få fram ett uttryck för $g'(0)$ enligt dess definition \eqref{eq:gphivfphiu}. Med kedjreregeln ser vi att
+	\begin{align*}
+		g'(0) & =  \phi'_v \circ f \circ \phi_{-u}(0) \cdot f' \circ \phi_{-u}(0) \cdot \phi'_{-u}(0) \\
+		      & = \phi'_v(v)f'(u)\phi'_{-u}(0).
+	\end{align*}
+	Då vi vill få fram ett uttryck för $\abs{f'(u)}$ undersöker vi nu en övre begränsning med hjälp av detta. Vi löser för $f'(u)$ i det föregående uttrycket och använder begränsningen på derivatan av $g$ vi fick med Schwarz lemma för att få
+	\begin{equation*}
+		\abs{f'(u)} = \abs{\frac{g'(0)}{\phi'_v(v)\phi'_{-u}(0)}} \le \abs{\frac{1 - \abs{v}^2}{1 - \abs{u}^2}} = \frac{1 - \abs{v}^2}{1 - \abs{u}^2},
+	\end{equation*}
+	där den sista likheten kommer från att både $u$ och $v$ ligger i enhetsdisken. Likheten fås ovan om $\abs{g'(0)}=1$ vilket enligt Schwarz lemma innebär att $g(z) = \lambda z$, med $\abs{\lambda} = 1$. Från \eqref{eq:gphivfphiu} fås att
+	\begin{equation}
+		f(z) = \phi_{-v}(g(\phi_u(z))),
+	\end{equation}
+	vilket är en injektiv funktion. Alltså kan vi säga att om $f$ inte är injektiv så måste
+	\begin{equation*}
+		\abs{f'(u)} < \frac{1 - \abs{v}^2}{1 - \abs{u}^2}.
+	\end{equation*}
 \end{proof}
 
-\section{Bevis av Riemanns avbildningssats}
+\section{Bevis för Riemanns avbildningssats}
 
 Vi kan nu bevisa Riemanns avbildningssats.
 \begin{proof}
@@ -156,7 +181,7 @@ Vi kan nu bevisa Riemanns avbildningssats.
 
 	Låt oss nu visa att $\phi$ också är injektiv. Tag $z_1, z_2 \in \Omega$. Då är enligt \eqref{eq:phi^2}
 	\begin{equation*}
-		\phi(z_1)^2 = z_1 - w_0 \quad \text{och} \quad \phi(z_2) = z_2 - w_0.
+		\phi(z_1)^2 = z_1 - w_0 \quad \text{och} \quad \phi^2(z_2) = z_2 - w_0.
 	\end{equation*}
 	Sätter vi $\phi(z_1) = \phi(z_2)$ får vi att $z_1 = z_2$, vilket visar att $\phi$ är injektiv.
 
@@ -209,7 +234,7 @@ Vi kan nu bevisa Riemanns avbildningssats.
 	\end{equation*}
 	Det gäller också att $\phi_{\alpha}$ är bijektiv mellan $U$ och $U$, enligt lemma \ref{lem:phi_bijec}.
 
-	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$, se figur \ref{fig:psi_omega}. Då gäller att sammansättningen $\phi_{\alpha} \circ \Psi \in \Sigma$ eftersom funktionen är holomorf och injektiv på $\Omega$ samt att $\Psi$ mappar $\Omega$ inuti $U$ och $\phi_{\alpha}$ mappar $U$ på $U$.
+	Tag nu ett $\Psi \in \Sigma$, $\alpha \in U$ där $\alpha \notin \Psi(\Omega)$, se figur \ref{fig:psi_omega}. Då gäller att sammansättningen $\phi_{\alpha} \circ \Psi \in \Sigma$ eftersom funktionen är holomorf och injektiv på $\Omega$ samt att $\Psi$ avbildar $\Omega$ inuti $U$ och $\phi_{\alpha}$ avbildar $U$ på $U$.
 
 
 	\begin{figure}
@@ -228,7 +253,7 @@ Vi kan nu bevisa Riemanns avbildningssats.
 	\begin{equation} \label{eq:g^2}
 		g^2(z) = \phi_{\alpha} \circ \Psi(z),
 	\end{equation}
-	eftersom $g^2(\Omega)$ är enkelt sammanhängande och med samma argument som tidigare för att det går att definiera en logaritm. Dessutom är $g$ injektiv vilket ger oss att $g \in \Sigma$. Om vi definierar
+	eftersom det enligt lemma \ref{lem:existens_logaritm} går att hitta en logaritm till $\phi_{\alpha} \circ \Psi$.  Dessutom är $g$ injektiv vilket ger oss att $g \in \Sigma$. Om vi definierar
 	\begin{equation} \label{eq:psi-tilde}
 		\Psi_1 = \phi_{\beta} \circ g,
 	\end{equation}
@@ -239,21 +264,25 @@ Vi kan nu bevisa Riemanns avbildningssats.
 	där $F =\phi_{-\alpha} \circ s \circ \phi_{-\beta}$.
 	Om vi väljer $\beta = g(z_0)$ är
 	\begin{equation*}
-		\Psi_1(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}z_0} = 0.
+		\Psi_1(z_0) = \phi_{\beta} \circ g(z_0) = \frac{g(z_0) - g(z_0)}{1- \conj{g(z_0)}g(z_0)} = 0.
 	\end{equation*}
 	Därför får vi från \eqref{eq:relation_psi_psi-tilde} och kedjeregeln att
 	\begin{equation*}
 		\Psi'(z_0) = \Psi_1'(z_0)F'(\Psi_1(z_0))  = \Psi_1'(z_0)F'(0).
 	\end{equation*}
-    Eftersom $F$ inte är injektiv (innehåller kvadratfunktionen) ser vi att kraven för korollarium \ref{cor:schwarz} är uppfyllda, med $u = 0$ och $v=F(0)$, vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
+	Eftersom $F$ inte är injektiv (innehåller kvadratfunktionen) ser vi att kraven för korollarium \ref{cor:schwarz} är uppfyllda, med $u = 0$ och $v=F(0)$, vilket ger att $\abs{F'(0)} < 1$ och \eqref{eq:psi_deriv_bigger} är därmed uppfyllt.
 
-	Vi ser att det för varje funktion i $\Sigma$ vars bild av $\Omega$ inte är hela $U$ existerar en funktion med större derivata i någon punkt $z_0$. Det kontraspositiva påståendet till detta ger oss att om vi finner en funktion som har den största derivatan i punkten $z_0$ så kommer denna funktionens bild av $\Omega$ att vara hela $U$. Vi definierar
+	Vi ser att det för varje funktion i $\Sigma$ vars bild av $\Omega$ inte är hela $U$ existerar en funktion med större derivata i någon punkt $z_0$. Det kontrapositiva påståendet till detta ger oss att om vi finner en funktion som har den största derivatan i punkten $z_0$ så kommer denna funktionens bild av $\Omega$ att vara hela $U$. Vi definierar
 	\begin{equation*}
 		\eta = \sup \{ |\Psi'(z_0)| : \Psi \in \Sigma \}.
 	\end{equation*}
-	Eftersom $\Sigma$ inte är tom, och funktionerna däri är injektiva, följer att $\eta > 0$. Vi vet att $\Sigma$ är likformigt begränsad då $\abs{\Psi(z)} < 1$ då $z \in \Omega$. Därutöver ser vi att $\abs{\Psi'}$ är kontinuerlig på kompakta delmängder till $\Omega$, varav det följer från Weierstra\ss~extremvärdessats att $\abs{\Psi'}$ är begränsad. Därmed existerar $\eta$ enligt supremumaxiomet.
+	Eftersom $\Sigma$ inte är tom, och funktionerna däri är injektiva, följer att $\eta > 0$. Vi vet att $\Sigma$ är likformigt begränsad då $\abs{\Psi(z)} < 1$ då $z \in \Omega$. Genom att använda Cauchys integralformel för derivata kan man visa att även $\abs{\Psi'(z_0)}$ är likformigt beränsat. Detta visas genom att betrakta en cirkelskiva $D(z_0, r) \subset \Omega$, för något litet $r$. Att en sådan existerar följer ur att $\Omega$ är öppen. Cauchys integralformel för derivata ger nu att
+	\begin{equation*}
+		\abs{\Psi'(z_0)} = \abs{\frac{1}{2\pi i} \int_{\partial D}{\frac{\Psi(z)}{(z-z_0)^2} dz}} \le \frac{1}{2\pi}\frac{1}{r^2} \cdot 2\pi r = \frac{1}{r},
+	\end{equation*}
+	där vi använder ML-olikhten och att $\abs{\Psi(z)}$ är likformigt begränsat av 1. Alltså är $\abs{\Psi'(z_0)}$ likformigt begränsat av $1/r$. Därmed existerar $\eta$ enligt supremumaxiomet.
 
-	Det existerar enligt supremumaxiomet en följd $\{\abs{\Psi'_n(z_0)}\}$ som konvergerar till $\eta$. Eftersom $\Sigma$ är likformigt begränsad följder det att det är en normalfamilj. Ur följden $\Psi_n$ kan vi därför ta en delföljd $\Psi_k$ så att $\Psi_k \xrightarrow{u} \zeta$ för någon funktion $\zeta$.
+	Det existerar enligt supremumaxiomet en följd $\{\abs{\Psi'_n(z_0)}\}$ som konvergerar till $\eta$. Eftersom $\Sigma$ är likformigt begränsad följer det att det är en normalfamilj. Ur följden $\Psi_n$ kan vi därför ta en delföljd $\Psi_k$ så att $\Psi_k \xrightarrow{u} \zeta$ för någon funktion $\zeta$.
 
 	Det följer av att $\Psi_k \xrightarrow{u} \zeta$ och att $\Psi_k$ är holomorfa att $\Psi'_k \xrightarrow{u} \zeta'$. Följden $\{\abs{\Psi'_k(z_0)}\}$, vilken konvergerar till $\abs{\zeta'(z_0)}$, är därför en delföljd till $\{\abs{\Psi'_n(z_0)}\}$ vilken konvergerar till $\eta$. Det följer att $\abs{\zeta'(z_0)}=\eta$.
 
