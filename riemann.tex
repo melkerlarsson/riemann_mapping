@@ -86,9 +86,9 @@
 	\end{equation*}
 	Genom att ta konjugatet av täljaren (vilket inte ändrar dess absolutbelopp) får vi
 	\begin{equation*}
-		\abs{\phi_\alpha(e^{i \theta})} = \frac{\abs{1 - \conj{\alpha} e^{i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}} = 1
+		\abs{\phi_\alpha(e^{i \theta})} = \frac{\abs{1 - \conj{\alpha} e^{i \theta}}}{\abs{1- \conj{\alpha}e^{i\theta}}} = 1,
 	\end{equation*}
-	Randen avbildas på sig själv. Vi får från maximumprincipen \ref{thm:maximumprincipen} att maximum för $\abs{\phi_\alpha}$ på $U$ kommer att antas på randen till $U$. Alltså
+	vilket innebär att randen avbildas på sig själv. Vi får från maximumprincipen, se sats \ref{thm:maximumprincipen}, att maximum för $\abs{\phi_\alpha}$ på $U$ kommer att antas på randen till $U$. Alltså
 	\begin{equation*}
 		\abs{\phi_\alpha(z)} \le 1 \quad z \in U.
 	\end{equation*}
@@ -96,7 +96,7 @@
 \end{proof}
 
 \begin{lemma}[Schwarz lemma]
-	Antag att $f \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
+	Antag att $f 0) 1 \in \H$. Om $\abs{f(z)} \le 1$ och $f(0)=0$ så gäller
 	\begin{align*}
 		\abs{f(z)}  & \le \abs{z} \quad z \in U \text{, och} \\
 		\abs{f'(0)} & \le 1.
@@ -286,10 +286,10 @@ Vi kan nu bevisa Riemanns avbildningssats.
 
 	Det följer av att $\Psi_k \xrightarrow{u} \zeta$ och att $\Psi_k$ är holomorfa att $\Psi'_k \xrightarrow{u} \zeta'$. Följden $\{\abs{\Psi'_k(z_0)}\}$, vilken konvergerar till $\abs{\zeta'(z_0)}$, är därför en delföljd till $\{\abs{\Psi'_n(z_0)}\}$ vilken konvergerar till $\eta$. Det följer att $\abs{\zeta'(z_0)}=\eta$.
 
-	Låt oss nu visa att $\zeta$ ligger i $\Sigma$ och att den därmed lägger $\Omega$ på $U$. Eftersom $\zeta$ har nollskild derivata i $z_0$ följer det att den inte är konstant. Vi kan då med sats (sats som ska skrivas i framtiden) säga att $\zeta$ är injektiv. Det återstår nu endast att se att den lägger $\Omega$ på $U$. Per definition gäller det att $\Psi_k(\Omega) \subset U$. Antag att det för något $z$ skulle gälla att $\zeta(z) \notin \overline{U}$. Vi kan då inte finna något $z'$ så att
+	Låt oss nu visa att $\zeta$ ligger i $\Sigma$ och att den därmed lägger $\Omega$ på $U$. Eftersom $\zeta$ har nollskild derivata i $z_0$ följer det att den inte är konstant. Vidare gäller följande resultat, vars bevis vi utelämnar: om vi har en följd av injektiva holomorfa funktioner som lokalt konvergerar likformigt mot en icke-konstant gränsfunktion, så är även gränsfunktionen injektiv. Detta följer som en konsekvens av \emph{Hurwitz sats}. Vi kan därför säga att $\zeta$ är injektiv. Det återstår nu endast att se att den lägger $\Omega$ på $U$. Per definition gäller det att $\Psi_k(\Omega) \subset U$. Antag att det för något $z$ skulle gälla att $\zeta(z) \notin \overline{U}$. Vi kan då inte finna något $z'$ så att
 	\begin{equation*}
 		\abs{\Psi(z') - \zeta(z)} < \epsilon
 	\end{equation*}
-	då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
+	då $n \to \infty$ för godtyckligt litet $\epsilon$. Alltså måste $\zeta(\Omega) \subset \overline{U}$. Men då $\zeta$ är holomorf och $\Omega$ öppen, gäller enligt sats \ref{thm:öppna_områden_bevaras} att $\zeta(\Omega) \subset U$. Det följer att $\zeta \in \Sigma$ och eftersom $\zeta'(z_0) = \eta$ lägger $\zeta$ området $\Omega$ på $U$.
 \end{proof}
 
