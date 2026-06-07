@@ -15,13 +15,13 @@
 \end{theorem}
 
 \begin{definition}[Normalfamilj]
-	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje funktionsföljd tagna från $\F$ innehåller en delföljd som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
+	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje funktionsföljd tagen från $\F$ innehåller en delföljd som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
 \end{definition}
 
 \begin{example}
-	Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, \vert z \vert \le \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en följd $\{ f_k(z) = z^{a_k} \}$ där $\{a_k\}$ är en ökande följd av naturliga tal. Vi har att
+Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, z \in \Omega\}$, där $\Omega = \{\abs{z} < \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en följd $\{ f_k(z) = z^{a_k} \}$. Skulle $a_k$ vara begränsad kan vi välja en konstant delföljd som trivialt konvergerar likformigt mot sig själv. Om $a_k$ däremot är en obegränsad talföljd kan vi ur denna ta en delföljd $b_k$ som är strikt växande och $b_k \to \infty$ då $k \to \infty$. Vi får då att 
 	\begin{equation*}
-		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{a_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{a_k} = 0.
+		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{b_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{b_k} = 0.
 	\end{equation*}
 	Familjen $\F$ är en normalfamilj.
 \end{example}
@@ -50,20 +50,20 @@ Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfam
 	\end{figure}
 
 	\begin{equation*}
-		f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \left( \frac{1}{\xi - z_0} - \frac{1}{\xi - z_1} \right) d\xi.
+		f(z_0) - f(z_1) = \frac{1}{2\pi i} \int_{\gamma} f(\xi) \left( \frac{1}{\xi - z_0} - \frac{1}{\xi - z_1} \right) d\xi.
 	\end{equation*}
 	Genom att skriva integranden på samma nämnare får vi att
 	\begin{equation*}
-		f(z_0) - f(z_1) = \int_{\gamma} f(\xi) \frac{z_0 - z_1}{(\xi - z_0)(\xi - z_1)} d\xi.
+		f(z_0) - f(z_1) = \frac{1}{2\pi i} \int_{\gamma} f(\xi) \frac{z_0 - z_1}{(\xi - z_0)(\xi - z_1)} d\xi.
 	\end{equation*}
 	Då vi utvärderar absolutbeloppet av uttrycken erhåller vi att
 	\begin{equation*}
-		\vert f(z_0) - f(z_1) \vert = \vert z_0 - z_1 \vert \cdot \left| \int_{\gamma} \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} d\xi \right|.
+        \vert f(z_0) - f(z_1) \vert = \frac{1}{2\pi} \cdot \vert z_0 - z_1 \vert \cdot \left| \int_{\gamma} \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} d\xi \right|.
 	\end{equation*}
 	Vi utnyttjar ML-olikheten på integraluttrycket för att få fram
 	\begin{equation}
 		\label{eq:equicontinuous1}
-		\vert f(z_0) - f(z_1) \vert \leq \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right|.
+		\vert f(z_0) - f(z_1) \vert \leq \frac{1}{2\pi} \cdot \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right|.
 	\end{equation}
 	Storleken av $\vert \xi - z_0 \vert$ är given då $\xi \in \gamma$. Vi noterade även tidigare att det existerar ett tal $M_{n+1}$ så att $\vert f(\xi) \vert \le M_{n+1}$ då $z \in \gamma \subset K_{n+1}$. För att hantera faktorn $\vert \xi - z_1 \vert$ använder vi triangelolikheten för att få
 	\begin{equation*}
@@ -75,22 +75,22 @@ Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfam
 	\end{equation*}
 	Med detta kan vi skriva om det högra uttrycket i \eqref{eq:equicontinuous1} enligt
 	\begin{equation*}
-		4 \pi \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right| < \vert z_0 - z_1 \vert \cdot  4 \pi \delta_n \cdot \frac{M_{n+1}}{2 \delta_n \cdot \delta_n } = \vert z_0 - z_1 \vert \cdot \frac{2 \pi M_{n+1}}{\delta_n}.
+		2 \delta_n \cdot \sup_{\xi \in \gamma}\left| \frac{f(\xi)}{(\xi - z_0)(\xi - z_1)} \right| < \vert z_0 - z_1 \vert \cdot  2 \delta_n \cdot \frac{M_{n+1}}{2 \delta_n \cdot \delta_n } = \vert z_0 - z_1 \vert \cdot \frac{M_{n+1}}{\delta_n}.
 	\end{equation*}
-	Vi kan nu återvända till \eqref{eq:equicontinuous1} och finner sambandet
+	Vi kan nu återvända till \eqref{eq:equicontinuous1} och finna sambandet
 	\begin{equation}
 		\label{eq:equicontinuous2}
-		\vert f(z_0) - f(z_1) \vert < \vert z_0 - z_1 \vert \cdot \frac{2 \pi M_{n+1}}{\delta_n}.
+		\vert f(z_0) - f(z_1) \vert < \vert z_0 - z_1 \vert \cdot \frac{M_{n+1}}{\delta_n}.
 	\end{equation}
 	Med detta samband går det nu utan större svårigheter att finna ett tal $\delta$ givet ett $\epsilon > 0$ sådant att då $\vert z_0 - z_1 \vert < \delta$ kommer $\vert f(z_0) - f(z_1) \vert < \epsilon$. Vi ser genom insättning i \eqref{eq:equicontinuous2} att detta uppfylls av
 
 	\begin{equation}
 		\label{eq:equidelta}
-		\delta = \frac{\epsilon \delta_n}{2 \pi M_{n+1}}.
+		\delta = \frac{\epsilon \delta_n}{M_{n+1}}.
 	\end{equation}
 	Vi kan med detta börja undersöka den likformiga konvergensen hos delföljder av följder till $\F$. Låt $F = \{ f_i \}$ vara en funktionsföljd tagen från den likformigt begränsade $\F$. Vi konstruerar en uppräknelig mängd $E$ som är tät i $\Omega$, och ordnar dessa i en följd $\{ z_i \}$.
 
-	Låt oss nu skapa en talföljd genom att utvärdera följden $F$ i punkten $z_1$. Eftersom denna följd, enligt antagandet att familjen $\F$ är likformigt begränsad, är en begränsad komplexvärd talföljd ger Bolzano-Weierstra\ss~sats att det existerar en delföljd som är konvergent. Vi bildar nu följden med de funktioner som är med i den konvergenta delföljden till $F$ utvärderad i $z_1$, och benämner denna följd $F_1 = \{ f_{1,i}\}$. Låt oss nu utvärdera följden $F_1$ i punkten $z_2$ och inse att denna följd har en konvergent delföljd. Funktionerna som utvärderas i denna följd inkluderar vi i en ny följd vi benämner $F_2$. Vi fortsätter på detta vis, så att följden $F_k = \{ f_{k,i}\}$ konvergerar i punkterna $z_{1..k}$.
+    Låt oss nu skapa en talföljd genom att utvärdera följden $F$ i punkten $z_1$. Eftersom denna följd, enligt antagandet att familjen $\F$ är likformigt begränsad, är en begränsad komplexvärd talföljd ger Bolzano-Weierstra\ss~sats att det existerar en delföljd som är konvergent. Vi bildar nu följden med de funktioner som är med i den konvergenta delföljden till $F$ utvärderad i $z_1$, och benämner denna följd $F_1 = \{ f_{1,i}\}$. Låt oss nu utvärdera följden $F_1$ i punkten $z_2$ och inse att denna följd har en konvergent delföljd. Funktionerna som utvärderas i denna följd inkluderar vi i en ny följd vi benämner $F_2$. Vi fortsätter på detta vis, så att följden $F_k = \{ f_{k,i}\}$ konvergerar i punkterna $\{z_n\}_{n=1}^k$.
 
 	Vi inser att följden $F_2$ fortfarande konvergerar i både punkterna $z_1$ och $z_2$ då det första elementet $f_{2,1}$ byts ut mot elementet $f_{1,1}$. Då det görs induktivt får vi diagonalföljden $F_{D} = \{ f_{i,i}\}$ som konvergerar i samtliga punkter ur $E$. Vi använder att en talföljd är konvergent om och endast om den är en Cauchyföljd och uttrycker detta som att för samtliga punkter $z_i$ och $\epsilon > 0$ existerar det ett $N$ så att
 	\begin{equation}
