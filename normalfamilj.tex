@@ -1,4 +1,4 @@
-
+Vi börjar med några nödvändiga definitioner för att kunna definiera normalfamiljer.
 \begin{definition}[Kompakt mängd]
 	En mängd $X$ säges vara \emph{kompakt} om varje öppen övertäckning av $X$ har en ändlig delövertäckning.
 \end{definition}
@@ -10,29 +10,29 @@
 	En mängd är uppräknelig om den är ändlig eller då det existerar en bijektiv avbildning av de naturliga talen på mängden.
 \end{definition}
 
-\begin{theorem}
-	Bolzano-Weierstra\ss~sats håller även för komplexa tal.
-\end{theorem}
-
 \begin{definition}[Normalfamilj]
 	Vi kallar en familj av funktioner $\F \subset \H(\Omega)$ en \emph{normalfamilj}, då varje funktionsföljd tagen från $\F$ innehåller en delföljd som konvergerar likformigt på varje kompakt delmängd av $\Omega$.
 \end{definition}
 
 \begin{example}
-Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, z \in \Omega\}$, där $\Omega = \{\abs{z} < \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en följd $\{ f_k(z) = z^{a_k} \}$. Skulle $a_k$ vara begränsad kan vi välja en konstant delföljd som trivialt konvergerar likformigt mot sig själv. Om $a_k$ däremot är en obegränsad talföljd kan vi ur denna ta en delföljd $b_k$ som är strikt växande och $b_k \to \infty$ då $k \to \infty$. Vi får då att 
+\label{ex:zk}
+Vi definierar familjen $\F = \{ f_k(z) = z^k, k \in \mathbb{N}, z \in \Omega\}$, där $\Omega = \{\abs{z} < \frac{1}{2}\}$. Låt oss nu visa att $\F$ är en normalfamilj. Tag en följd $\{ f_k(z) = z^{a_k} \}$. Skulle $a_k$ vara begränsad kan vi välja en konstant delföljd som trivialt konvergerar likformigt mot sig själv. Om $a_k$ däremot är en obegränsad talföljd kan vi ur denna ta en delföljd $b_k$ som är strikt växande och där $b_k \to \infty$ då $k \to \infty$. Vi får då att 
 	\begin{equation*}
 		\lim_{k \to \infty} \sup_{z \in \Omega} \vert z^{b_k} - 0 \vert =  \lim_{k \to \infty} \left(\frac{1}{2}\right)^{b_k} = 0.
 	\end{equation*}
 	Familjen $\F$ är en normalfamilj.
 \end{example}
 
+För att kunna uttnyttja normalfamiljer i beviset för Riemanns avbildningssats behöver vi en mer behändig karaktärisering av dessa som bygger på likformigt begränsade familjer.
+
 \begin{definition}[Likformigt begränsad familj]
 	Vi säger att $\F \subset \H(\Omega)$ är likformigt begränsad då det existerar ett tal $M$ sådant att $\vert f(z) \vert < M$ för alla $z \in \Omega$ och $f \in \F$.
 \end{definition}
 
-Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfamiljer, som kan ses som en motsvarighet till Bolzano-Weierstra\ss~sats i den reella analysen.
+Låt oss nu formulera våran kraftfulla karaktärisering av normalfamiljer, som kan ses som en motsvarighet till Bolzano-Weierstra\ss~sats i den reella analysen.
 
 \begin{theorem}
+    \label{thm:normalfamilj}
 	Låt $\F \subset \H(\Omega)$ vara likformigt begränsad på varje kompakt delmängd till $\Omega$. Familjen $\F$ är då en normalfamilj.
 \end{theorem}
 
@@ -108,3 +108,7 @@ Låt oss nu formulera en sats som ger en kraftfull karaktärisering av normalfam
 	\end{equation*}
 	Då ett och samma $\epsilon$ ger konvergens för samtliga punkter i $K_n$ har vi visat att $F_D$ konvergerar likformigt i $K_n$. Varje kompakt delmängd till $\Omega$ ligger dessutom i $K_n$ för något tillräckligt stort $n$, varför vi har visat att det existerar en delföljd till varje följd ur $\F$ som konvergerar likformigt på varje kompakt delmängd till $\Omega$. Familjen $\F$ är en normalfamilj.
 \end{proof}
+
+\begin{example}
+    Om vi återvänder till familjen som presenterades i exempel \ref{ex:zk} ser vi att samtliga funktioner begränsas av talet 1 i kompakta delmängder av $\Omega$. Det följer därför från definitionen att familjen är likformigt begränsad på dessa delmängder och sats \ref{thm:normalfamilj} ger att det är en normalfamilj. 
+\end{example}
