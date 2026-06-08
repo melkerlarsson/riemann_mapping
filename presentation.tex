@@ -73,7 +73,7 @@ Vi definierar
     \end{equation*}
    \begin{itemize}
         \item[\(\square\)] Steg 1: Visa att $\Sigma$ är icke-tom.
-        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}'(z_0) \vert > \abs{\Psi'(z_0)}$.
         \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
         \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
     \end{itemize} 
@@ -86,28 +86,25 @@ Vi definierar
     Vi skapar
     \begin{align*}
         \phi^2(z) &= z - w_0 \\
-        \phi(z) &= \exp(\frac{1}{2} \Log(z-w_0)),
+        \phi(z) &= \exp\left(\frac{1}{2} \Log(z-w_0)\right),
     \end{align*}
-    vilken existerar ty vi kan välja en gren för Log.
+    vilken existerar eftersom vi kan välja en gren för logaritmen.
 \end{frame}
 
-\begin{frame}{Steg 1, egenskaper för $\phi$}
+\begin{frame}{Steg 1, egenskaper för $\phi = \exp\left(\frac{1}{2} \Log(z-w_0)\right)$}
     \begin{center}
     \includegraphics[width=0.8\textwidth]{figures/pres_disk.png}
     \end{center}
-\begin{columns}[t]
-    \begin{column}{0.5\textwidth}
-       Vi kan visa att $\phi$ är injektiv och att $\nexists \hskip 3pt z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. 
-    \end{column}
-    \begin{column}{0.5\textwidth}
-        Vi kan därför bilda funktionen
+    \begin{itemize}
+        \item Vi kan visa att $\phi$ är injektiv och att $\nexists \hskip 3pt z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. 
+        \item Vi kan därför bilda funktionen
         \begin{equation*}
             \Psi(z) = \frac{r}{a+\phi(z)} \quad \in \H(\Omega).
         \end{equation*}
 $\Psi$ är injektiv och $\abs{\Psi(z)} < 1$ för alla $z \in \Omega \implies \Psi \in \Sigma$.
-    \end{column}
-\end{columns}
-\end{frame}
+
+    \end{itemize}
+        \end{frame}
 
 \begin{frame}{Bevisöverblick}
 Vi definierar
@@ -116,7 +113,7 @@ Vi definierar
     \end{equation*}
    \begin{itemize}
         \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
-        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}'(z_0) \vert > \abs{\Psi'(z_0)}$.
         \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
         \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
     \end{itemize} 
@@ -130,12 +127,12 @@ Låt $\Psi \in \Sigma$ inte avbilda $\Omega$ på hela $U$, med $\alpha \in U$ oc
 Det kan då visas att om
 
 \begin{equation*}
-    \Psi_1(z) = \phi_\beta\left(\exp\left(\frac{1}{2} \Log (\phi_\alpha(\Psi(z))\right)\right), \quad \text{med}
+    \hat{\Psi}(z) = \phi_\beta\left(\exp\left(\frac{1}{2} \Log (\phi_\alpha(\Psi(z))\right)\right), \quad \text{med}
 \end{equation*}
 \begin{equation*}
-    \phi_\alpha = \frac{z - \alpha}{1-\conj{\alpha}z} \quad \text{och} \quad \beta = \exp\left(\frac{1}{2} \Log\left(\phi_\alpha(\Psi(z_0))\right)\right),
+    \phi_\alpha(z) = \frac{z - \alpha}{1-\conj{\alpha}z} \quad \text{och} \quad \beta = \exp\left(\frac{1}{2} \Log\left(\phi_\alpha(\Psi(z_0))\right)\right),
 \end{equation*}
-så gäller att $\abs{\Psi_1'(z_0)} > \abs{\Psi'(z_0)}$ där $z_0 \in \Omega$. Det gäller då även att $\Psi_1 \in \Sigma$.
+så gäller att $\vert \hat{\Psi}'(z_0)\vert > \abs{\Psi'(z_0)}$ där $z_0 \in \Omega$. Det gäller då även att $\hat{\Psi} \in \Sigma$.
 \end{frame}
 
 \begin{frame}{Bevisöverblick}
@@ -145,7 +142,7 @@ Vi definierar
     \end{equation*}
    \begin{itemize}
         \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
-        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}'(z_0) \vert > \abs{\Psi'(z_0)}$.
         \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
         \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
     \end{itemize} 
@@ -165,7 +162,7 @@ Vi definierar
         \item $\Sigma$ likformigt begränsad $\implies \exists \{\Psi_k\} \subset \{\Psi_n\}$ där $\Psi_k \xrightarrow{u} \zeta$.
             %Bolzano-Weierstrass
         \item $\Psi_k \in \H \implies \Psi'_k \xrightarrow{u} \zeta'$
-        \item Eftersom $\abs{\Psi'_n} \to \eta$ och $\Psi_k$ delföljd av $\Psi_n$$\implies$ $\abs{\zeta'(z_0)} = \eta$.
+        \item Eftersom $\abs{\Psi'_n(z_0)} \to \eta$ och $\Psi_k$ delföljd av $\Psi_n$$\implies$ $\abs{\zeta'(z_0)} = \eta$.
     \end{itemize}
 \end{frame}
 
@@ -176,7 +173,7 @@ Vi definierar
     \end{equation*}
    \begin{itemize}
         \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
-        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}'(z_0) \vert > \abs{\Psi'(z_0)}$.
         \item[\(\boxtimes\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
         \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
     \end{itemize} 
@@ -194,7 +191,7 @@ Vi definierar
 
         \item Alltså har vi att $\zeta$ är injektiv, holomorf och avbildar $\Omega$ i U $\implies \zeta \in \Sigma$.
         \item Från att $\zeta$ har störst derivata i $z_0$ följer att den avbildar $\Omega$ på hela $U$. 
-        \item Då den är injektiv i $\Omega$ (och därför har nollskild derivata i $\Omega$) följer att den utgör en koform avbildning.\hfill $\square$
+        \item Då den är injektiv i $\Omega$ (och därför har nollskild derivata i $\Omega$) följer att den utgör en konform avbildning.\hfill $\square$
     \end{itemize}
 \end{frame}
 
