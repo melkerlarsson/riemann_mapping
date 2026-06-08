@@ -1,18 +1,201 @@
 \documentclass{beamer}
+\usepackage[swedish]{babel}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{graphicx}
 
+\uselanguage{swedish}
+\languagepath{swedish}
+\deftranslation[to=swedish]{Theorem}{Sats}
+\deftranslation[to=swedish]{Definition}{Definition}
+
+\usefonttheme{serif}
+
+\renewcommand{\phi}{\varphi}
+
+\renewcommand{\H}{\mathscr{H}}
+\newcommand{\F}{\mathscr{F}}
+
+\newcommand{\Log}{\operatorname{Log}}
+
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\conj}[1]{\overline{#1}}
+
+
+\title{Riemanns Avbildningssats}
+\author{Hugo Tängdén \and Melker Larsson}
+\date{\today}
+
+\usetheme{Madrid}
 
 \begin{document}
 
 \begin{frame}
-    
+    \titlepage 
 \end{frame}
 
-\begin{frame}{Testslide}
-	\includegraphics[width=\textwidth]{figures/grensnitt.png}
+\begin{frame}{Motivering}
+    \includegraphics[width=\textwidth]{figures/presentation-inledning.png}
+    \begin{itemize}
+        \item Vill lösa problemet $\begin{cases}
+            \Delta u = 0 \text{ i } \Omega \\
+            u = g \text{ på } \partial \Omega
+        \end{cases}$ genom att finna en avbildning $f$: $\Omega \to \Sigma$ som bevarar laplace operator. 
+    \item Detta visar sig sant för konforma avbildningar.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Konforma avbildningar}
+    \begin{definition}[Konform i punkt]
+        En avbildning $f$ är konform i punkten $z_0$ omm $f'(z_0) \neq 0$.
+    \end{definition}
+    Detta betyder geometriskt att avbildningen bevarar vinklar.
+    \begin{definition}[Konform avbildning]
+        En avbildning $f: \Omega \to \Sigma$ är konform omm $f'(z) \neq 0, \forall z \in \Omega$ och $f$ är bijektiv.
+    \end{definition}
+        En naturlig följdfråga är från vilka områden $\Omega$ vi kan finna en konform avbildning till ett \enquote{lätt} område. Följande sats ger ett svar.
+\end{frame}
 
+\begin{frame}{Riemanns Avbildningssats}
+    \includegraphics[width=\textwidth]{figures/riemann-sats.png}
+    \begin{theorem}[Riemanns Avbildningssats]
+	Varje enkelt sammanhängande område $\Omega \subset \mathbb{C}$ kan med en holomorf funktion avbildas konformt till den öppna enhetsdisken~$U$.
+    \end{theorem}
+\end{frame}
+
+\begin{frame}{Bevisöverblick}
+Vi definierar
+    \begin{equation*}
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi(\Omega) \subseteq U\}.
+    \end{equation*}
+   \begin{itemize}
+        \item[\(\square\)] Steg 1: Visa att $\Sigma$ är icke-tom.
+        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
+        \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
+    \end{itemize} 
+    \vspace{0.3cm}
+    Det följer ur kontrapositiva påståendet till steg 2 att funktionen~$\zeta$ avbildar $\Omega$ på hela $U$.
+\end{frame}
+
+\begin{frame}{Steg 1}
+    \includegraphics[width=\textwidth]{figures/steg1-gren.png} 
+    Vi skapar
+    \begin{align*}
+        \phi^2(z) &= z - w_0 \\
+        \phi(z) &= \exp(\frac{1}{2} \Log(z-w_0)),
+    \end{align*}
+    vilken existerar ty vi kan välja en gren för Log.
+\end{frame}
+
+\begin{frame}{Steg 1, egenskaper för $\phi$}
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/pres_disk.png}
+    \end{center}
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+       Vi kan visa att $\phi$ är injektiv och att $\nexists \hskip 3pt z_1, z_2 \in \Omega$ så att $\phi(z_1) = -\phi(z_2)$. 
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        Vi kan därför bilda funktionen
+        \begin{equation*}
+            \Psi(z) = \frac{r}{a+\phi(z)} \quad \in \H(\Omega).
+        \end{equation*}
+$\Psi$ är injektiv och $\abs{\Psi(z)} < 1$ för alla $z \in \Omega \implies \Psi \in \Sigma$.
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Bevisöverblick}
+Vi definierar
+    \begin{equation*}
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi(\Omega) \subseteq U\}.
+    \end{equation*}
+   \begin{itemize}
+        \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
+        \item[\(\square\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
+        \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
+    \end{itemize} 
+    \vspace{0.3cm}
+    Det följer ur kontrapositiva påståendet till steg 2 att funktionen~$\zeta$ avbildar $\Omega$ på hela $U$.
+\end{frame}
+
+\begin{frame}{Steg 2}
+Låt $\Psi \in \Sigma$ inte avbilda $\Omega$ på hela $U$, med $\alpha \in U$ och $\alpha \notin \Psi(\Omega)$.
+
+Det kan då visas att om
+
+\begin{equation*}
+    \Psi_1(z) = \phi_\beta\left(\exp\left(\frac{1}{2} \Log (\phi_\alpha(\Psi(z))\right)\right), \quad \text{med}
+\end{equation*}
+\begin{equation*}
+    \phi_\alpha = \frac{z - \alpha}{1-\conj{\alpha}z} \quad \text{och} \quad \beta = \exp\left(\frac{1}{2} \Log\left(\phi_\alpha(\Psi(z_0))\right)\right),
+\end{equation*}
+så gäller att $\abs{\Psi_1'(z_0)} > \abs{\Psi'(z_0)}$ där $z_0 \in \Omega$. Det gäller då även att $\Psi_1 \in \Sigma$.
+\end{frame}
+
+\begin{frame}{Bevisöverblick}
+Vi definierar
+    \begin{equation*}
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi(\Omega) \subseteq U\}.
+    \end{equation*}
+   \begin{itemize}
+        \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
+        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\square\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
+        \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
+    \end{itemize} 
+    \vspace{0.3cm}
+    Det följer ur kontrapositiva påståendet till steg 2 att funktionen~$\zeta$ avbildar $\Omega$ på hela $U$.
+\end{frame}
+
+\begin{frame}{Steg 3}
+    \begin{equation*}
+        \eta = \sup\{\abs{\Psi'(z_0)} : \Psi \in \Sigma\}.
+    \end{equation*}
+    \begin{itemize}
+        \item Injektivitet för $\Psi$ ger att $\eta > 0$
+        \item Cauchys integralformel för derivata och ML-olikheten ger att $\{\abs{\Psi'(z_0)}\}$ är begränsad och därmed att $\eta < \infty$
+        \item Från supremumaxiomet följer att det existerar en följd $\abs{\Psi'_n(z_0)} \to \eta$.
+            \vspace{1cm}
+        \item $\Sigma$ likformigt begränsad $\implies \exists \{\Psi_k\} \subset \{\Psi_n\}$ där $\Psi_k \xrightarrow{u} \zeta$.
+            %Bolzano-Weierstrass
+        \item $\Psi_k \in \H \implies \Psi'_k \xrightarrow{u} \zeta'$
+        \item Eftersom $\abs{\Psi'_n} \to \eta$ och $\Psi_k$ delföljd av $\Psi_n$$\implies$ $\abs{\zeta'(z_0)} = \eta$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bevisöverblick}
+Vi definierar
+    \begin{equation*}
+		\Sigma = \{ \Psi \in \H(\Omega) \mid \Psi \text{ injektiv på } \Omega \text{ och } \Psi(\Omega) \subseteq U\}.
+    \end{equation*}
+   \begin{itemize}
+        \item[\(\boxtimes\)] Steg 1: Visa att $\Sigma$ är icke-tom.
+        \item[\(\boxtimes\)] Steg 2: Visa att om funktionen $\Psi \in \Sigma$ inte täcker hela $U$ så existerar det $\hat{\Psi} \in \Sigma$ så att $\vert \hat{\Psi}(z_0) \vert > \abs{\Psi(z_0)}$.
+        \item[\(\boxtimes\)] Steg 3: Hitta en följd ur $\Sigma$, $\{\Psi_k\}$, där  $\Psi_k \xrightarrow{u} \zeta$ och $\zeta$ har störst derivata i punkten $z_0$.
+        \item[\(\square\)] Steg 4: Visa att $\zeta$ ligger i $\Sigma$.
+    \end{itemize} 
+    \vspace{0.3cm}
+    Det följer ur kontrapositiva påståendet till steg 2 att funktionen~$\zeta$ avbildar $\Omega$ på hela $U$.
+\end{frame}
+
+\begin{frame}{Steg 4}
+    \begin{itemize}
+        \item $\abs{\zeta'(z_0)} = \eta > 0 \implies \zeta(z)$ ej konstant. 
+        \item Hurwitz sats ger att $\zeta$ är injektiv.
+            \vspace{0.3cm}
+        \item $\Psi_k(\Omega) \subset U$ och likformiga konvergensen ger att $\zeta(\Omega) \subset \bar{U}$.
+        \item Då holomorf funktion avbildar öppna områden på öppna områden följer att $\zeta(\Omega) \subset U$.
+
+        \item Alltså har vi att $\zeta$ är injektiv, holomorf och avbildar $\Omega$ i U $\implies \zeta \in \Sigma$.
+        \item Från att $\zeta$ har störst derivata i $z_0$ följer att den avbildar $\Omega$ på hela $U$. 
+        \item Då den är injektiv i $\Omega$ (och därför har nollskild derivata i $\Omega$) följer att den utgör en koform avbildning.\hfill $\square$
+    \end{itemize}
 \end{frame}
 
 \end{document}
